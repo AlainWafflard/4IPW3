@@ -153,3 +153,32 @@ HTML;
     return $html;
 
 }
+
+
+function form_background()
+{
+    $out = <<< HTML
+
+<form method="post">
+    <label>couleur du BG ? </label>
+    <input type="color" name="my_favorite_color" />   
+    <button name="set_bgcolor" type="submit">change</button>
+</form>
+HTML;
+
+    return $out;
+}
+
+function style_sheet($bg_color)
+{
+    $out = <<< HTML
+    <style>
+        body
+        {
+            background-color: $bg_color;
+        }
+    </style>
+HTML;
+    return $out;
+}
+

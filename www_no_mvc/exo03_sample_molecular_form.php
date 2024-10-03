@@ -7,6 +7,7 @@ function processUploadedFile($filename)
 
 	// server path of the file to be uploaded
 	$target_file = $target_dir.basename($_FILES[$filename]["name"]);
+    var_dump($target_file);
 
 	$uploadOk = true;
 	// Check if file already exists on the server
@@ -75,16 +76,17 @@ function processUploadedFile($filename)
 </head>
 <body>
 <h1>Running the script to manage the file</h1>
+<pre>
 <?php
-
 var_dump($_POST);
-
 var_dump($_FILES);
-
+?>
+</pre>
+<?php
 // check if button was pressed
 if( ! isset($_POST["submit"])) 
 {
-	echo "<div>button submit not presse, no image uploaded</div>".
+	echo "<div>button submit not pressed, no image uploaded</div>".
 	exit;
 }
 
