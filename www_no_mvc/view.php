@@ -155,14 +155,28 @@ HTML;
 }
 
 
-function form_background()
+function form_background($bg_color='#000000')
 {
     $out = <<< HTML
 
 <form method="post">
     <label>couleur du BG ? </label>
-    <input type="color" name="my_favorite_color" />   
+    <input type="color" name="my_favorite_color" value="$bg_color"/>   
     <button name="set_bgcolor" type="submit">change</button>
+</form>
+HTML;
+
+    return $out;
+}
+
+function form_login()
+{
+    $out = <<< HTML
+
+<form method="post">
+    <label>votre nom ?  </label>
+    <input type="text" name="my_login" />   
+    <button name="set_login" type="submit">Log !</button>
 </form>
 HTML;
 
