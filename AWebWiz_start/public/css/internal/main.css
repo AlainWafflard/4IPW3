@@ -21,7 +21,7 @@ div#txt
 
 h1
 {
-    font-family:Arial;
+    font-family: Arial, sans-serif;
     font-size:large;
     text-align:center;
 }
@@ -147,7 +147,7 @@ div.recap table
 div.recap td
 {
     background-color:whitesmoke;
-    margin:0px;
+    margin:0;
     padding:2px;
     border-width: 1px 0;
     border-color:blue;
@@ -165,7 +165,7 @@ div.recap th.total
 
 div.recap td.prix
 {
-    font-family: Courier, proportional ;
+    font-family: Courier, monospace ;
     text-align: right;
 }
 

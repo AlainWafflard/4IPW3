@@ -1,7 +1,4 @@
 <?php
-//session_start();
-//include "model/db_helper.php";
-//include "view/html_helper.php";
 
 function main_login()
 {
