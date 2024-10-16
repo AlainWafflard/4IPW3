@@ -1,65 +1,69 @@
 <?php
+
+
 session_start();
 require_once("math.php");
 require_once("view.php");
 require_once("model.php");
+
+$cookie_login_a = json_decode($_COOKIE['login'] ?? '', true );
+$is_login_valid = isset($cookie_login_a['is_logged']);
+if($is_login_valid)
+{
+    $login_name = $cookie_login_a['name'] ?? '';
+}
+
+if(isset($_POST['set_logout']))
+{
+    // il.elle se déloggue
+    $message  = "Vous vous êtes déloggué.";
+    setcookie('login', 0, 0, "/");
+    $is_login_valid = false;
+    // unset($_SESSION['login']);
+    // unset($_SESSION['bg_color']);
+}
+
+if(isset($_POST['set_login']))
+{
+    // qqn a cliqué sur le bouton "log".
+    $login_name = $_POST['my_login'];
+    $is_login_valid = check_login($login_name);
+    if($is_login_valid)
+    {
+        // user identified
+        // $_SESSION['login']['is_logged'] =true;
+        // $_SESSION['login']['name'] = $login;
+        $v = json_encode([
+            'is_logged' => true,
+            'name'      => $login_name
+        ]);
+        setcookie( 'login', $v, time()+60*5, "/" );
+    }
+    else
+    {
+        // user not identified
+        // unset($_SESSION['login']);
+        setcookie( 'login', 0, 0, "/" );
+        $message = "Identifiant non reconnu.  Veuillez réessayer.";
+    }
+}
+
+$bg_color = $_COOKIE['bg_color'] ?? 'lightskyblue';
+if(isset($_POST['set_bgcolor']))
+{
+    // l'utilisateur a cliqué sur le bouton
+    $bg_color = $_POST['my_favorite_color'];
+}
+// $_COOKIE['bg_color'] = $bg_color;
+// set cookie expirant dans 5 min
+setcookie( 'bg_color', $bg_color, time()+60*5, "/" );
 
 ?>
 <html>
 <head>
 
     <?php
-
-    /*if(isset($_SESSION['login']['is_logged'])
-    and $_SESSION['login']['is_logged'])
-    {
-        // déjà loggué
-    }*/
-
-    if(isset($_POST['set_logout']))
-    {
-        // il.elle se déloggue
-        $message  = "Vous vous êtes déloggué.";
-        unset($_SESSION['login']);
-        unset($_SESSION['bg_color']);
-    }
-
-    if(isset($_POST['set_login']))
-    {
-        // qqn a cliqué sur le bouton "log".
-        $login = $_POST['my_login'];
-        $is_valid = check_login($login);
-        if($is_valid)
-        {
-            // user identified
-            $_SESSION['login']['is_logged'] =true;
-            $_SESSION['login']['name'] = $login;
-        }
-        else
-        {
-            // user not identified
-            unset($_SESSION['login']);
-            $message = "Identifiant non reconnu.  Veuillez réessayer.";
-        }
-    }
-
-
-    /*if(isset($_SESSION['bg_color']))
-    {
-        $bg_color = $_SESSION['bg_color'];
-    }
-    else
-    {
-        $bg_color = 'lightskyblue';
-    }*/
-    $bg_color = $_SESSION['bg_color'] ?? 'lightskyblue';
-    if(isset($_POST['set_bgcolor']))
-    {
-        // l'utilisateur a cliqué sur le bouton
-        $bg_color = $_POST['my_favorite_color'];
-    }
     echo style_sheet($bg_color);
-    $_SESSION['bg_color'] = $bg_color;
     ?>
 
 </head>
@@ -107,13 +111,12 @@ echo form_background($bg_color);
 <h1>Log in</h1>
 <?php
 
-if( isset($_SESSION['login']['is_logged'])
-and $_SESSION['login']['is_logged'] )
+if( $is_login_valid )
 {
     // bienvenue
     echo <<< HTML
     <form method="post">
-        <p>Bienvenue {$_SESSION['login']['name']}</p>
+        <p>Bienvenue {$login_name}</p>
         <button type="submit" name="set_logout">log out</button>
     </form>
 HTML;
