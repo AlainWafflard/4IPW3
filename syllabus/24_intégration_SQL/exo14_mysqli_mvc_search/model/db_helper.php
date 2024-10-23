@@ -8,7 +8,7 @@ function db_init()
 	try 
 	{		
 		//Establishing Connection with Server
-		$conn = mysqli_connect( "localhost", "root", "", "4ipdw_sample" );
+		$conn = mysqli_connect( "localhost", "root", "", "sample" );
 	}
 	catch (Exception $e) 
 	{
