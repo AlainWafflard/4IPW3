@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JQuery / AJAX / méthode .load()</title>
+	<style type="text/css">
+	  div { width: 400px; height: 150px; margin: 5px; }
+	  #premier { background-color: #F6E497; }
+	  #deuxieme { background-color: #F1DBCA; }
+	  #troisieme { background-color: #CAF1EC; }
+	</style>
+	<script
+	 src="https://code.jquery.com/jquery-3.4.1.js" 
+	 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	 crossorigin="anonymous"></script>
+	<script>
+	$( function() {
+
+		// exemple 1 
+		// charger contenu statique (fichier HTML)
+		// fonction jQuery "load"
+		//  param 1 : fichier / URL
+		//  param 2 : script js à exécuter ensuite
+		$('#maj1').click(function() {
+		  $('#premier').load('exo01_maj1.html', function() {
+			alert('La première zone a été mise à jour');
+		  });
+		});
+		
+		// exemple 2
+		// charger contenu dynamique (fichier PHP) 
+		// avec paramétrage
+		// méthode POST 
+		// fonction jQuery "load"
+		//  param 1 : URL 
+		//  param 2 : paramètres envoyés à cet URL (méthode POST)
+		$('#maj2').click(function() {
+			var param = { number : $('#ref2').val() };
+			$('#deuxieme').load('exo02_proverbe.php',param);		
+		});
+		
+		// exemple 3
+		// récupérer un contenu via $.post
+		// puis traiter ce contenu
+		$('#maj3').click(function() {
+			var param = { number : $('#ref3').val() };
+			$.post('exo02_proverbe.php', param, function(data) {
+				alert(data);
+				$('#troisieme').html(data);
+				$('#deuxieme').html(data);
+				$('#premier').html(data);
+			}, "html" );
+		});
+		
+	});
+	</script>
+  </head>
+  <body>
+
+	<h1>Exo01</h1>
+	<button id="maj1">Mise à jour 1 (texte)</button>
+	<div id="premier">
+	  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</div>
+	<hr />
+
+	<h1>Exo02</h1>
+	<input type="text" id="ref2" />
+	<button id="maj2">Proverbe chinois (load)</button>
+	<div id="deuxieme">
+	  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+	<hr />
+	
+	<h1>Exo03</h1>
+	<input type="text" id="ref3" />
+	<button id="maj3">Proverbe chinois (post)</button>
+	<div id="troisieme">
+	  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+	</div>
+
+  </body>
+</html>

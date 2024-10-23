@@ -1,0 +1,33 @@
+<html>
+<head>
+<script>
+
+	/**
+	 * swap_div inverse le contenu des éléments juste avant et juste après 
+	 * l'objet appelant
+	 */
+	function swap_div(el)
+	{
+		var el_prev = el.previousElementSibling;
+		var el_next = el.nextElementSibling;
+		var tmp = el_next.innerHTML;
+		el_next.innerHTML = el_prev.innerHTML;
+		el_prev.innerHTML = tmp ;
+	}
+
+</script>  
+</head>
+<body>
+  
+    <div id="div1">1221</div>
+
+	<button 
+		onclick="swap_div(this);"
+		type="button">
+			swap both div
+	</button>
+
+    <div id="div3">3333</div>
+    
+</body>
+</html>

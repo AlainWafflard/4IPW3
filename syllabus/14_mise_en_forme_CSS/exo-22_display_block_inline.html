@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body
+{
+	font-size:16px;
+}
+
+h1
+{
+	color:blue;
+	font-weight:bold;
+	font-family:sans-serif;
+}
+
+div.display_block
+{
+	display:block;
+	color:green;
+	margin:8px;
+}
+
+div.gras
+{
+	display:inline;
+	font-weight:bold;
+	font-style: italic; 
+	border:0;
+}
+
+span.bloc
+{
+	display:block;
+	color:red;
+	margin:10px;
+}
+
+div
+{
+	border:grey 2px solid;
+	margin:8px;
+	padding:8px;
+	display:block;
+	background-color:Bisque;
+}
+
+div.display_inline
+{
+	display:inline;
+	background-color:yellow;
+	margin:0px;
+	padding:0px;
+}
+
+div.display_inline_block_box
+{
+	height:300px;	
+}
+
+div.display_inline_block
+{
+	height:50%;
+	display:inline-block;
+	background-color:DarkSalmon ;
+	width:28%;
+	padding:1%;
+	margin-left:1%;
+	margin-right:1%;
+	margin-top:8%;
+	margin-bottom:0%;
+	vertical-align:top;
+}
+
+div.display_none
+{
+	display:none;
+	background-color:red ;
+	width:50%;
+}
+
+/* FORM */
+
+input, textarea 
+{
+	/*déjà en inline-block*/
+	width: 250px;
+	padding: 4px;
+	vertical-align: top;
+}
+
+textarea 
+{
+	width: 300px;
+	height: 5em;
+}
+
+label 
+{
+	display: inline-block;
+	width: 100px;
+	margin-right: 20px;
+	vertical-align: top;
+	text-align: right;
+}
+
+</style>
+</head>
+<body>
+
+<h1>
+	pas de style particulier
+</h1>
+<div>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+	<span class="bloc">
+	(&agrave; &eacute;viter : SPAN utilis&eacute;	&agrave; contre-sens) 
+	Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+	</span>
+	Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+	<div>
+		(pas de style particulier) 
+		display_block display_block display_block 
+	</div>
+	Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+<h1>
+	CSS : display:block et display:none
+</h1>
+<div class="display_block">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	<div class="display_none">
+		display_none display_none 
+		display_none display_none 
+	</div>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+<h1>
+	CSS : display:block et display:inline
+</h1>
+<div class="display_block">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	<div class="display_inline">
+		(&agrave; &eacute;viter : DIV utilis&eacute;	&agrave; contre-sens) 		
+		display_inline display_inline
+		display_inline display_inline
+		display_inline display_inline
+	</div>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+<h1>
+	CSS : display:block et display:inline-block
+</h1>
+<div class="display_inline_block_box">
+	<div class="display_inline_block">
+		display inline block display inline block 
+		display inline block display inline block 
+	</div>
+	<div class="display_inline_block">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+		nisi ut aliquip ex ea commodo consequat. 
+	</div>
+	<div class="display_inline_block">
+		Duis aute irure dolor in reprehenderit in voluptate velit esse 
+		cillum dolore eu fugiat nulla pariatur. 
+		Excepteur sint occaecat cupidatat non proident, 
+		sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+</div>
+
+<h1>
+	formulaire align&eacute; avec <br/>
+	HTML label, input<br/>
+	CSS display: inline-block
+</h1>
+<form name="my_form" action="#result" method="post">
+	<p> <label for="nom">Nom</label> <input type="text" id="nom"> </p>
+	<p> <label for="email">E-mail</label> <input type="e-mail" id="email"> </p>
+	<p> <label for="sujet">Sujet</label> <input type="text" id="sujet"> </p>
+	<p> <label for="message">Message</label> <textarea id="message"></textarea> </p>
+</form>
+
+</body>
+</html>

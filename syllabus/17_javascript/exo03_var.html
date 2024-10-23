@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>exo15-05 : les variables en JavaScript</title>
+</head>
+
+<body>
+<script>
+
+//Forme littérale pour un nombre entier en base décimale
+var nombreEntier = 11;
+//Forme littérale pour un nombre réel
+var nombreReel = 11.435;
+//Forme littérale d’une chaine de caractères
+var chaineCaracteres = "Une chaine de caractères";
+//Forme littérale d’un tableau normal (object)
+var tableau = [ "Premier élément", "Second élément" ];
+//Forme littérale d’un tableau associatif/objet
+var tableauAssociatif = { "cle1" : "valeur1", "cle2" : "valeur2" };
+
+var variable1;
+alert( " type de variable1 : " + (typeof variable1) );
+// variable1 est de type undefined
+var variable2 = null;
+alert(" type de variable2 : "+(typeof variable2));
+// variable2 est de type object
+var variable3 = 12;
+alert(" type de variable3 : "+(typeof variable3));
+// variable3 est de type number
+var variable4 = "une chaîne de caractères";
+alert(" type de variable4 : "+(typeof variable4));
+// variable4 est de type string
+var variable5 = true;
+alert(" type de variable5 : "+(typeof variable5));
+// variable5 est de type boolean
+
+</script>
+   
+</body>
+</html>
