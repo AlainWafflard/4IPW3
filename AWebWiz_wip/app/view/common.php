@@ -28,8 +28,9 @@ function html_head($menu_a=[], $user_id="", $user_role="")
         {
             $text = $menu[0];
             $link = $menu[1];
+            $option = isset($menu[2]) ? "&name={$menu[2]}" : "";
             echo <<< HTML
-                <a href="?page=$link">$text</a> | 
+                <a href="?page=$link$option">$text</a> | 
 HTML;
         }
         ?>
