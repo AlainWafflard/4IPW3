@@ -1,6 +1,6 @@
 <?php
 
-function html_head($menu_a)
+function html_head($menu_a=[], $user_id="", $user_role="")
 {
     $debug = false;
 	ob_start();
@@ -32,8 +32,8 @@ function html_head($menu_a)
                 <a href="?page=$link">$text</a> | 
 HTML;
         }
-
         ?>
+        Welcome, <?=$user_id?> (<?=$user_role?>).
     </header>
     <?php
 

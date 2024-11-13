@@ -32,7 +32,7 @@ function login_validate($input)
 	}
 	catch( Exception $e) 
 	{
-		echo "Problem while reading file login2.csv : " . $e->getMessage();
+		echo "Problem while reading file login.csv : " . $e->getMessage();
 		return array( false, null, null );
 	}
 }

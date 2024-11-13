@@ -2,7 +2,7 @@
 
 function main_login()
 {
-	$action = @$_GET['action'] ?: "";
+	$action = $_GET['action'] ?? "";
 	$msg = '';
 
 	//	if(isset($_POST['logout'] ))
@@ -30,10 +30,8 @@ function main_login()
 	if(isset($_SESSION['id']))
 	{
 		// l'utilisateur est déjà identifié
-		// plus besoin du composant login
-		// => redirection vers home page
-		print('mouchard');
-		header("Location: .");
+        // => on lui propose le logout
+        $msg .= html_logout_button();
 	}
 	else
 	{
