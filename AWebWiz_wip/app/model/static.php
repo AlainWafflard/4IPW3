@@ -13,3 +13,4 @@ function get_static_content($name)
         return "erreur 404 - page non trouvée";
     }
 }
+

@@ -3,7 +3,8 @@ body
 {
     font-size: medium;
     /* font-size:10px; */
-    width:26.2cm;
+    width:600px;
+    margin:auto;
 }
 
 a
@@ -19,25 +20,25 @@ div#txt
     background-color: red;
 }
 
-h1
+header h1
 {
     font-family: Arial, sans-serif;
     font-size:large;
     text-align:center;
 }
 
-h1 img
+header h1 img
 {
     width: 50px;
 }
 
 
-div.button_bar
+header div.button_bar
 {
     background-color:Cornsilk ;
 }
 
-div.search_bar
+header div.search_bar
 {
     text-align:right;
     background-color:Cornsilk ;
@@ -199,5 +200,33 @@ ul.menu li
     display:inline-block;
     text-decoration:none;
     padding:5px;
+}
+
+main section.breaking article
+{
+    background-color: lightpink;
+}
+
+main section.other article
+{
+    background-color: lightgray;
+}
+
+main section.breaking article h1,
+main section.article article h1,
+main section.other article h1
+{
+    font-size:16px;
+}
+
+main section.breaking article h2,
+main section.article article h2
+{
+    font-size:14px;
+}
+
+main section.article
+{
+    font-size:12px;
 }
 

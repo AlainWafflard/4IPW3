@@ -36,6 +36,7 @@ HTML;
         ?>
         Welcome, <?=$user_id?> (<?=$user_role?>).
     </header>
+    <main>
     <?php
 
 	if($debug)
@@ -54,8 +55,9 @@ function html_foot()
 {
 	ob_start();
 	?>
-        <hr />
+        </main>
         <footer>
+            <hr />
             Made with the amazing AWebWiz framework
             <img src="./media/awebwiz.png" alt="AWebWiz logo">
         </footer>
