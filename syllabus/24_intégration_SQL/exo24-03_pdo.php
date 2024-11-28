@@ -80,7 +80,6 @@ try
 	// Establishing Connection with Database
     $dsn =  "mysql:host=localhost;dbname=sample;";
     $pdo = new PDO( $dsn, "root", "" );
-    $select_html_code = "";
 
 	// Example with INSERT 
 	// insert new deal, the name of this new deal coming from the form
@@ -130,6 +129,7 @@ SQL;
 SQL;
 	$stmt = $pdo->query($q);
 
+	$select_html_code = '';
     while ($row = $stmt->fetch())
 	{
 		// concatenating HTML code into a single string
