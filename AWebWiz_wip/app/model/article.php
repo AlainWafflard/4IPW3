@@ -9,7 +9,17 @@
  */
 function get_article_a($art_id=1)
 {
-    $fn = '../asset/database/article.json';
+    switch (DATABASE_TYPE) {
+        case "SQL":
+            return get_article_a_sql($art_id);
+        case "JSON":
+            return get_article_a_json($art_id);
+    }
+}
+
+function get_article_a_json($art_id)
+{
+    $fn = DATABASE_NAME;
     $art_db_s = file_get_contents($fn);
     $art_db_a = json_decode($art_db_s, true);
     foreach( $art_db_a as $art_a)
@@ -18,6 +28,28 @@ function get_article_a($art_id=1)
     }
     // $art_a possède les données de l'article id 1
     return $art_a ;
+}
+
+function get_article_a_sql($art_id)
+{
+    $q = <<< SQL
+        SELECT
+            ident_art AS id,
+            title_art AS title,
+            hook_art AS hook,
+            content_art AS content,
+            `fk_category_art` AS category    
+        FROM t_article
+        WHERE 
+            ident_art = :ident_art ;
+SQL;
+    $pdo = get_pdo();
+    $stmt = $pdo->prepare($q);
+    // var_dump($stmt);
+    $param = ['ident_art' => $art_id];
+	$stmt->execute($param);
+    $result = $stmt->fetch();
+    return $result;
 }
 
 function get_bottom_article_a()
@@ -30,11 +62,44 @@ function get_bottom_article_a()
     return $art_aa;
 }
 
+/**
+ * retourne tous (?) les articles de la db
+ * @return mixed
+ */
 function get_all_article_a()
 {
-    $fn = '../asset/database/article.json';
+    switch(DATABASE_TYPE) {
+        case "SQL":
+            return get_all_article_a_sql();
+        case  "JSON":
+            return get_all_article_a_json();
+    }
+}
+
+function get_all_article_a_json()
+{
+    $fn = DATABASE_NAME;
     $art_db_s = file_get_contents($fn);
     $art_db_a = json_decode($art_db_s, true);
     return $art_db_a;
 }
 
+function get_all_article_a_sql(): array
+{
+    $q = <<< SQL
+        SELECT
+            ident_art AS id,
+            title_art AS title,
+            hook_art AS hook,
+            content_art AS content,
+            `fk_category_art` AS category    
+        FROM t_article
+        ORDER BY ident_art DESC
+        LIMIT 5 
+SQL;
+    $pdo = get_pdo();
+    $stmt = $pdo->query($q);
+
+    $result = $stmt->fetchAll();
+    return $result;
+}

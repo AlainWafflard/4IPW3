@@ -78,7 +78,7 @@
 try
 {
 	// Establishing Connection with Database
-	$dsn =  "mysql:host=localhost;dbname=sample;";
+	$dsn =  "mysql:host=localhost;dbname=sample;port=3307;charset=utf8mb4";
 	$pdo = new PDO( $dsn, "root", "" );
 
 	// Example with INSERT

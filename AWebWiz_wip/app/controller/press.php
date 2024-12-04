@@ -12,3 +12,4 @@ function main_press()
         html_foot(),
     ]);
 }
+
