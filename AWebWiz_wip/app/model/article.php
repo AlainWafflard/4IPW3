@@ -36,16 +36,17 @@ function get_article_a_sql($art_id)
         SELECT
             ident_art AS id,
             title_art AS title,
-            hook_art AS hook,
+            '' AS hook,
             content_art AS content,
-            `fk_category_art` AS category    
+            `fk_category_art` AS category,
+            date_art AS date_published, 
+            image_art AS image_name
         FROM t_article
         WHERE 
             ident_art = :ident_art ;
 SQL;
     $pdo = get_pdo();
     $stmt = $pdo->prepare($q);
-    // var_dump($stmt);
     $param = ['ident_art' => $art_id];
 	$stmt->execute($param);
     $result = $stmt->fetch();
@@ -66,11 +67,11 @@ function get_bottom_article_a()
  * retourne tous (?) les articles de la db
  * @return mixed
  */
-function get_all_article_a()
+function get_all_article_a($kw='', $limit=DEFAULT_SEARCH_LIMIT)
 {
     switch(DATABASE_TYPE) {
         case "SQL":
-            return get_all_article_a_sql();
+            return get_all_article_a_sql($kw, $limit);
         case  "JSON":
             return get_all_article_a_json();
     }
@@ -84,7 +85,7 @@ function get_all_article_a_json()
     return $art_db_a;
 }
 
-function get_all_article_a_sql(): array
+function get_all_article_a_sql($kw='', $limit=DEFAULT_SEARCH_LIMIT): array
 {
     $q = <<< SQL
         SELECT
@@ -94,12 +95,22 @@ function get_all_article_a_sql(): array
             content_art AS content,
             `fk_category_art` AS category    
         FROM t_article
+        WHERE title_art LIKE :kw_string
         ORDER BY ident_art DESC
-        LIMIT 5 
+        LIMIT :limit
 SQL;
     $pdo = get_pdo();
-    $stmt = $pdo->query($q);
-
+    // $stmt = $pdo->query($q);
+    $stmt = $pdo->prepare($q);
+    $kw_string = "%$kw%";
+    // settype( $limit, 'integer');
+    /*$param = [
+        'kw_string' => $kw_string,
+        // 'limit' => $limit
+    ];*/
+    $stmt->bindParam( ':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindParam( ':kw_string', $kw_string);
+    $stmt->execute();
     $result = $stmt->fetchAll();
     return $result;
 }

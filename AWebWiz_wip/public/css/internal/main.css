@@ -230,3 +230,7 @@ main section.article
     font-size:12px;
 }
 
+div.media_article img
+{
+    width:600px;
+}
