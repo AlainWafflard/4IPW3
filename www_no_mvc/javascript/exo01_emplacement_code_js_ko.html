@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Emplacement JS KO</title>
+    <script>
+        function on_load()
+        {
+            var x = 5;  // local
+            y = 6;   // global
+            // el = document.getElementById("01");
+            // el.innerHTML = "Bonjour";
+            // el.innerHTML = el.innerHTML.toUpperCase();
+            console.log("page" + " " + "chargée");
+
+            const example_l = document.querySelectorAll(".example");
+            // console.log( example_l.innerHTML );
+            example_l.forEach( o => {
+                console.log(o.innerHTML);
+            });
+            // console.log( " o défini? ", o.innerHTML );
+
+            // on crée une ligne <hr>
+            const barre = document.createElement("div");
+            const b = document.getElementsByTagName("body")[0];
+            b.appendChild(barre);
+            barre.innerHTML = "fin de soirée";
+            barre.setAttribute( "style", "color:red;");
+        }
+
+    </script>
+
+</head>
+
+<body onload="on_load()">
+
+<h1 id="demo">page d'accueil</h1>
+<div id="01" class="example">Bienvenue</div>
+<div id="02" >Bienvenue à tous</div>
+<div class="example">Bienvenue à vous tous</div>
+<!-- barre -->
+
+</body>
+</html>
