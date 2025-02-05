@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+    <p id="p3">This is a third paragraph.</p>
+</div>
+
+
+<script>
+    // var e = document.getElementById("p1");
+    // var f = e.nextElementSibling;
+    // f.innerHTML = "This is a new text";
+    // var g = f.previousElementSibling;
+    // g.innerHTML = "This is not a new text";
+</script>
+<script>
+    var e = document.getElementById("div1");
+    var n = e.childElementCount;
+    e.children[n-2].innerHTML = "this is new";
+
+    console.log( "n=" + n );
+    console.log( "length=" + e.children.length);
+</script>
+
+</body>
+</html>
