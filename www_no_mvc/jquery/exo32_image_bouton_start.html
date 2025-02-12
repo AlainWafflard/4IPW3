@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>exo16-32 : Image mouvante</title>
+	<script
+	 src="https://code.jquery.com/jquery-3.4.1.js"   
+	 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	 crossorigin="anonymous" ></script>
+	<script>
+	$(function() {
+		// 1. Positionner l'image en top:100 et left:milieu de la page
+		//    tips : $(window).width()
+		//           .offset()
+		// Dimensions de la fenêtre
+		const demihauteur = $(window).height()/2;
+		const target = $('#target');
+		let cpt = 0 ;
+
+		// Affichage de la première image en (100, 100)
+		let mip = {
+			top  : demihauteur,
+			left : 100,
+		};
+		target.offset(mip);
+
+		// 2. définir les évènements souris
+		//    uniquement le click sur le bouton 
+		//    que l'image bouge de 10 pixels vers le bas
+		//    que le span d'id "my_index" (dans le bouton) 
+		//    compte le nombre de clicks (compteur variable globale)
+		//    tips : .click()
+		//           .offset()
+		//           .html()
+		$("button#move").on( {
+			"click" : function () {
+				mip["top"] += 10;
+				/*let new_vert_pos = mip["top"] + 10;
+				mip = {
+					top  : new_vert_pos,
+					left : 100,
+				};*/
+				target.offset(mip);
+				// alert("ici");
+				cpt++;
+				$("span#my_index").html(cpt);
+			}
+		});
+	});
+	</script>
+</head>
+<body>
+	<h1>Cliquez sur l'image</h1>
+	<button id="move">MOVE LOGO (<span id="my_index">0</span>)</button>
+	<br/>
+	<img id="target" src="https://burotix.be/images/logo103x90-V6-beige_bg.png">
+</body>
+</html>

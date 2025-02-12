@@ -2,15 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<script
+    <script
             src="jquery-3.7.1.min.js"
-            crossorigin="anonymous"></script>-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+            crossorigin="anonymous"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    ></script>
+    <!--<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>-->
     <!-- integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" -->
     <script>
         $( function() {
            // ce code sera exécuté après le chargement de la page
-            $("#exo1601").html("Hello World !");
+            // $("#exo1601").html("Hello World !");
+            $("div.newtext").html("nouveau texte");
+
+            const my_image_position = {
+                top  : 100,
+                left : 200,
+            };
+
+            $.each(my_image_position, function(k, v) {
+                console.log(k + ":" + v);
+            });
+
+            const my_list = [ 'a', 'b', 'c'];
+            $.each( my_list, function(i, v) {
+                console.log( "index:" + i + "-value:" + v);
+            });
+
+            const sel = "div#exo1601";
+            console.log($(sel).css("color"));
+            $(sel).css("color", "red");
+            console.log($(sel).css("color"));
+
+            console.log($(sel).html());
+
+            $('a#my_anchor').attr('target', function() {
+                if(this.host == location.host)
+                    return '_self'
+                else
+                    return '_blank';
+            });
+
+            // élément dans lequel on va stocker des données
+            var my_div = $('div')[0];
+
+            // données en question
+            var grandfather_json = {
+                name : "Peulafenetre",
+                firstname : "Firmin",
+                age : 75,
+            };
+
+            // on stocke les données dans l'élément
+            $.data(my_div, 'grandfather', grandfather_json );
+
+            // on récupère les données de l'élément pour les afficher
+            var val3 = $.data(my_div, 'grandfather').age;
+            console.log(val3);
+
+
         });
 
     </script>
@@ -18,5 +68,17 @@
 </head>
 <body>
     <div id="exo1601">hello</div>
+    <div class="newtext">ancien texte</div>
+    <div class="newtext">ancien texte 2</div>
+    <a href="http://api.jquery.com">
+        API jQuery
+    </a> |
+    <a id="my_anchor" href="http://docs.jquery.com">
+        Documentation jQuery
+    </a>
+
+
+
+
 </body>
 </html>
