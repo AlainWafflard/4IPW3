@@ -1,6 +1,8 @@
 <h1>ISFCE, cours "projet de développement web" (4IPW3), 2024</h1>
 <p>Exos sur la programmation serveur (PHP), faits en classe - hors MVC & dans MVC</p>
 
+<p><span style="text-decoration: underline;">Remarque</span> : Ce README ne concerne pas le cours "web, principes de base" (4IWPB), dont les infos se trouvent sur Moodle.</p>
+
 <h2>Quelques liens ...</h2>
 <ul>
   <li>
