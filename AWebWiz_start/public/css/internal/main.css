@@ -201,3 +201,8 @@ ul.menu li
     padding:5px;
 }
 
+span.compteur
+{
+    border:4px blue dotted;
+}
+

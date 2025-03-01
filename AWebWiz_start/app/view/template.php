@@ -16,6 +16,7 @@ function html_head()
                 crossorigin="anonymous"></script>
         <script src="./js/quirks/QuirksMode.js"></script>
         <script src="./js/internal/favorite.js"></script>
+        <script src="./js/internal/counter.js"></script>
 	</head>
 	<body>
     <header>
