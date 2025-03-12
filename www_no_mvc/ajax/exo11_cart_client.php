@@ -18,7 +18,7 @@
 	 */
 	function display_cart(cart_data)
 	{
-		// on efface le panier actuel
+		// on efface la liste du panier actuel
 		$("ul#panier_contenu").html("");
 		
 		// on recrée les balises <li> 
@@ -29,6 +29,16 @@
 			s += "<li>" + v + "</li>"
 		});
 		$("ul#panier_contenu").html(s);
+
+        // on met à jour le display (none|inline-block) des boutons
+        $('button.del').css( 'display', 'none');
+        $.each(cart_data, function( i, v ) {
+            $('button.del[for="'+v+'"]').css( 'display', 'inline-block');
+        });
+        $('button.add').css( 'display', 'inline-block');
+        $.each(cart_data, function( i, v ) {
+            $('button.add[for="'+v+'"]').css( 'display', 'none');
+        });
 	}
 
 	/* 
@@ -48,7 +58,22 @@
 			};
 			$.post( server_url, param, display_cart, "json" );
 		});
-		
+		$('button.del').click(function() {
+			// alert('button clicked' + $(this).attr('for') );
+			var param = {
+				product_id : $(this).attr('for') ,
+				action:"del"
+			};
+			$.post( server_url, param, display_cart, "json" );
+		});
+        $('button.delete_all_cart').click(function() {
+            // alert('button clicked' + $(this).attr('for') );
+            var param = {
+                action:"delete_all_cart"
+            };
+            $.post( server_url, param, display_cart, "json" );
+        });
+
 		// afficher le panier au chargement de la page
 		$.post( server_url, display_cart, "json" );
 
@@ -61,7 +86,7 @@
 	<h1>Mon catalogue</h1>
 	
 	<?php
-	$product_count = 6;
+	$product_count = 4;
 	
 	for( $i=1 ; $i<=$product_count ; $i++ )
 	{
@@ -72,6 +97,9 @@
 		<button class="add" for="produit{$i}">
 			Ajouter au panier
 		</button>
+		<button class="del" for="produit{$i}">
+			Retirer du panier
+		</button>
 		<hr />
 PRODUCT;
 	}
@@ -81,7 +109,7 @@ PRODUCT;
 		Dans votre panier :
 		<ul id="panier_contenu"></ul>
 	</div>
-	<button class="del">Effacer le panier</button>
+	<button class="delete_all_cart">Effacer tout le panier</button>
 
   </body>
 </html>

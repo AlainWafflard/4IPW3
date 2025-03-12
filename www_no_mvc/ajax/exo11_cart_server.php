@@ -14,6 +14,22 @@ if( isset($_POST['action']) and $_POST['action']=="delete_all_cart" )
 	$_SESSION['cart'] = array();
 }
 
+// action == "del"
+// retirer le produit du panier
+if( isset($_POST['action']) and
+    $_POST['action']=="del" and
+    ! empty($_POST['product_id']))
+{
+    foreach( $_SESSION['cart'] as $i => $v )
+    {
+        if( $v == $_POST['product_id'] )
+        {
+            unset($_SESSION['cart'][$i]);
+            break;
+        }
+    }
+}
+
 // si action = ajouter un produit au panier 
 // ajouter un élément au panier 
 if( isset($_POST['action']) and 

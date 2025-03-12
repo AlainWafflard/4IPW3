@@ -4,7 +4,7 @@
 $( function() {
 
     // URL du serveur
-    const server_url = '/public/index.php';
+    const server_url = '/';
 
     // évènement associé aux boutons "add product to cart"
     $('button.add_favorite').click(function() {
