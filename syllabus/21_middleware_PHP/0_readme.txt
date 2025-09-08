@@ -1,1 +1,0 @@
-Attention, tous ces fichiers de solutions ne sont pas compatibles entre eux. Différentes versions sont mélangées.  Faites attention notamment aux nom, format et séparateur des fichiers CSV qui peuvent varier d'un exercice à l'autre.
