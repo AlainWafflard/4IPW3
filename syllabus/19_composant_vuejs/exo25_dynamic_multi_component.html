@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue.js - multi-composants dynamiques</title>
+  <!-- Lien vers Vue.js en CDN -->
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+  <script type="module" src="./exo25-app.js" defer></script>
+  <link rel="stylesheet" href="global.css">
+</head>
+<!-- Conteneur principal géré par Vue -->
+<body id="app">
+
+  <header-component
+    title="Mon Beau Site Web"
+    :verbose_b="verbose"
+    :theme="header_theme"
+  >
+  </header-component>
+
+  <main-component
+    :verbose_b="verbose" >
+  </main-component>
+
+  <footer-component></footer-component>
+
+</body>
+</html>

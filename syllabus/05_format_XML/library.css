@@ -1,0 +1,98 @@
+biblio
+{
+	border:red 1px solid;
+}
+
+/* biblio:before
+{
+	content:'Contenu de ma bibliothèque';
+} */
+
+body
+{
+	/* width:19cm; */
+}
+
+livre, div.livre
+{
+	margin: 2mm ;
+    font-size: 14pt ; 
+    font-family: arial ; 
+	float:left;
+}
+
+livre titre, div.titre
+{
+    display: block; 
+    width: 250px;
+    background-color: blue; 
+    color: white; 
+	border-top-right-radius: 1cm;
+	border-top-left-radius: 1cm;
+	border-left: blue  solid 4px;
+	border-right: blue solid 4px;
+	border-top: blue solid 4px;
+	padding-left:1cm;
+}
+
+livre auteur, div.auteur
+{
+    display: block; 
+    width: 250px;
+	border-left: blue  solid 4px;
+	border-right: blue solid 4px;
+	border-bottom: blue solid 4px;
+	padding-left:1cm;
+	/* border-bottom-right-radius: 1cm; */ 
+	/* border-bottom-left-radius: 1cm;  */
+}
+
+livre nb_tomes
+{
+	display:none;
+}
+
+div.attention
+{
+	color:red;
+}
+
+div.attention:before
+{
+  content: 'Auteur : ';
+}
+
+livre auteur:before
+{
+  content: 'Auteur : ';
+}
+
+h1
+{
+    font-size: 14pt ; 
+    font-family: arial ; 
+}
+
+div.recap th
+{
+
+}
+
+div.recap table
+{
+	border:magenta 2px solid;
+	margin:2px;
+	padding:2px;
+}
+
+div.recap td
+{
+	background-color:lightgray;
+	margin:0;
+	padding:2px;
+	border-bottom:gray 1px solid;
+	border-top:gray 1px solid;
+	border-left:white 1px solid;
+	border-right:white 1px solid;
+}
+

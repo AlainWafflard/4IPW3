@@ -1,0 +1,243 @@
+<html>
+<head>
+<!-- 
+Exercice TRES avancé !!
+
+Représentez une page web avec quatre DIV 
+- le premier contient du texte et est situé dans le premier quadrant;
+- le deuxième est vide de texte, contient un autre DIV et 
+  est situé dans le deuxième quadrant;
+- le troisième est vide de texte, contient un autre DIV et 
+  est situé dans le troisème quadrant; 
+- la quatrième est situé dans le quatrième quadrant, près du coin de la
+  fenêtre et reste immobile par rapport à celle-ci.
+-->
+<style>
+body
+{
+	width:600px;
+	height:600px;
+	position:relative;
+	margin:auto;
+	background-color:WhiteSmoke;	
+	border:1px black solid;
+}
+
+div
+{
+	display:block;
+	position:static;
+	visibility:visible;
+	border:grey 2px solid;
+	background-color:DarkOrange ;
+}
+
+div.pf
+{
+	position:fixed;
+	right:0%;
+	bottom:0px;
+	width:200px;
+	height:100px;
+	overflow-y:auto;
+	background-color:yellow;
+	z-index:0;
+	animation:slide 6s;
+	-moz-animation:slide 6s infinite; /* Firefox */
+	-webkit-animation:slide 6s infinite; /* Safari and Chrome */
+}
+
+/* @-moz-keyframes slide /* Firefox * /, */ 
+@-webkit-keyframes slide /* Safari and Chrome */
+{
+	0% {
+		right:80%;
+		height:100px;
+	}
+	10% {
+		right:70%;
+		height:50px;
+	}
+	40% {
+		right:10%;
+		height:50px;
+	}
+	50% {
+		right:0%;
+		height:100px;
+	}
+	60% {
+		right:10%;
+		height:50px;
+	}
+	90% {
+		right:70%;
+		height:50px;
+	}
+	100% {
+		right:80%;
+		height:100px;
+	}
+}
+
+div.pa 
+{
+	position:absolute;
+	width:160px;
+	height:160px;
+	z-index:1;
+}
+
+div.pa1
+{
+	left:128px;
+	top:128px;
+	overflow-y:auto;
+	z-index:3;
+	animation:jellow 1000ms;
+	-moz-animation:jellow 1000ms infinite; /* Firefox */
+	-webkit-animation:jellow 1000ms infinite; /* Safari, Chrome */
+}
+
+/* @-moz-keyframes jellow /* Firefox * /, */ 
+@-webkit-keyframes jellow /* Safari and Chrome */
+{
+	0% {
+		width:160px;
+	}
+	25% {
+		width:640px;
+	}
+	50% {
+		width:160px;
+	}
+	75% {
+		width:80px;
+	}
+	100% {
+		width:160px;
+	}
+}
+
+div.pa2
+{
+	right:128px;
+	top:128px;
+	animation:move 1s;
+	-moz-animation:move 1s infinite; /* Firefox */
+	-webkit-animation:move 1s infinite; /* Safari, Chrome */
+}
+
+/* @-moz-keyframes move /* Firefox * /, */ 
+@-webkit-keyframes move /* Safari and Chrome */
+{
+	0% {
+		top:128px;
+	}
+	20% {
+		top:308px;
+	}
+	80% {
+		top:308px;
+	}
+	100% {
+		top:128px;
+	}
+}
+
+div.pa3
+{
+	left:128px;
+	bottom:128px;
+}
+
+.centered_block {
+	margin: auto;
+	text-align: center;
+}
+
+.centered_block:before {
+	content: '';
+	display: inline-block;
+	height:100%; 
+	vertical-align: middle;
+}
+
+.centered_block:after {
+	content: '';
+	display: inline-block;
+	height:100%; 
+	vertical-align: middle;
+}
+
+.centered_block * {
+	width: 50%;
+	height:50%;
+	display: inline-block;
+	background-color: #f5f5f5;
+	vertical-align: middle;
+}
+
+div#blue
+{
+	animation:headache 4s;
+	-moz-animation:headache 4s infinite; /* Firefox */
+	-webkit-animation:headache 4s infinite; /* Safari and Chrome */
+}
+
+@-webkit-keyframes headache /* Safari and Chrome */
+/* @-moz-keyframes headache /* Firefox */
+{
+	0%   {background:red;}
+	50%  {background:blue;}
+	100%   {background:red;}
+}
+
+div#green
+{
+	animation:schrink move 8s;
+	-moz-animation:schrink 500ms infinite; /* Firefox */
+	-webkit-animation:schrink 500ms infinite; /* Safari, Chrome */
+}
+
+/* @-moz-keyframes schrink /* Firefox * /, */ 
+@-webkit-keyframes schrink /* Safari and Chrome */
+{
+	0% {
+		width:90%;
+		height:90%;
+	}
+	50% {
+		width:0;
+		height:0;
+	}
+	100% {
+		width:90%;
+		height:90%;
+	}
+}
+
+</style>
+</head>
+<body>
+
+<div class="pa pa1">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</div>
+
+<div class="pa pa2 centered_block">
+	<div id="blue">
+	</div>	
+</div>
+
+<div class="pa pa3 centered_block">
+	<div id="green">
+	</div>	
+</div>
+
+<div class="pf">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</div>
+
+</body>
+</html>

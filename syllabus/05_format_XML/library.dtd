@@ -1,0 +1,20 @@
+<!ELEMENT biblio (livre*)>
+
+<!ELEMENT livre (titre, auteur+, nb_tomes?, couverture?)>
+  <!ATTLIST livre
+	livre_id ID #REQUIRED
+    type (roman | nouvelles | poemes | théâtre) #IMPLIED
+    lang CDATA "fr"
+  >
+
+<!ELEMENT titre (#PCDATA)>
+
+<!ELEMENT auteur (#PCDATA)>  
+  <!ATTLIST auteur
+    country (BE | FR | US | GB | NL) 'FR'
+  >
+
+<!ELEMENT nb_tomes (#PCDATA)>
+  <!ATTLIST nb_tomes
+    value CDATA "1"
+  >

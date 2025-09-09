@@ -1,0 +1,117 @@
+<html>
+<head>
+<!-- link rel="stylesheet" href="border_gradient.css" / -->
+<style>
+
+body
+{
+	font-size:16px;
+}
+
+h1
+{
+	color:green;
+	font-size:20px;
+}
+
+h1 + div
+{
+	color:blue;
+}
+
+/*
+div:hover
+{
+	background-color:#FF0000;	
+}
+*/	
+
+div.arrondi
+{
+	border-style:dashed;
+	border-width:1px;
+	border-color:red;
+	background-color:#FFFFA0;
+	border-radius:12px;
+	padding:6px;
+	font-size:10px;;
+}
+
+div.arrondi:hover
+{
+	background-color:#A0FFFF;	
+	transition: background-color 5s;
+}
+
+h1 
+{
+}
+
+a:hover
+{
+	color: #FF00FF;
+}
+
+div.m2
+{
+	font-family:Sans-serif;
+	font-size:1em;
+}
+
+div.m3
+{
+	font-family:Serif;
+	font-size:1em;
+}
+
+div.g
+{
+	color:white; 
+	background-image: linear-gradient(to right, green 0%, red 50%);
+	padding-left:0px;
+}
+
+div.g:hover
+{
+	padding-left:100px;
+	color:black; 
+	transition: color 10s, padding-left 10s;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Ceci est mon titre (en vert)</h1>
+<div>Ceci est mon accroche </div>
+<div>Ceci est mon texte </div>
+<hr>
+
+<div>Ceci est mon accroche </div>
+
+<div class="arrondi">
+	Lorem ipsum dolor sit amet, <br/>
+	consectetur adipiscing elit, <br/>
+	sed do eiusmod tempor incididunt <br/>
+	ut labore et dolore magna aliqua. <br/>
+	Ut enim ad minim veniam, quis <br/>
+	nostrud exercitation ullamco <br/>
+	laboris nisi ut aliquip ex ea <br/>
+	commodo consequat.
+</div>
+<hr>
+
+<div class="g">
+	Lorem ipsum dolor sit amet, <br/>
+	consectetur adipiscing elit, <br/>
+	sed do eiusmod tempor incididunt <br/>
+	ut labore et dolore magna aliqua. <br/>
+	Ut enim ad minim veniam, quis <br/>
+	nostrud exercitation ullamco <br/>
+	laboris nisi ut aliquip ex ea <br/>
+	commodo consequat.
+</div>
+<hr/>
+
+</body>
+</html>

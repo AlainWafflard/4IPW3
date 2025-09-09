@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>exo15-04 : les tableaux en JavaScript</title>
+
+<script>
+/**
+ *  display_va affiche le contenu de la variable dans DIV#affiche
+ */
+function display_var($va)
+{
+	can = document.getElementById("affiche");
+	can.innerHTML = can.innerHTML + $va + "<br/>";
+}
+
+/**
+ *  display_array affiche le contenu du tableau dans DIV#affiche
+ */
+function display_array($ar)
+{
+	// alert($ar.join('\n'));
+	// alert(JSON.stringify($ar)) 
+	can = document.getElementById("affiche");
+	can.innerHTML = can.innerHTML + JSON.stringify($ar) + "<br/>";
+}
+</script>
+</head>
+<body>
+
+<div id="affiche"></div>
+
+<script type="text/javascript">
+
+// Initialisation tableau indexé - Possibilité 1
+var monTableau1 = ["Pierre","Paul"];
+display_array(monTableau1);
+
+// Ajouter un élément. Index commence à 0.
+monTableau1[2] = "Jacques"; //ajoute un 3ième élément
+display_array(monTableau1);
+
+// Initialisation tableau indexé - Possibilité 2
+var monTableau2 = new Array( "Pierre", "Paul", "Jacques" );
+display_array(monTableau2);
+
+// Ajouter un élément
+monTableau2.push("Jacques");
+display_array(monTableau2);
+
+// Longueur du tableau
+display_var( "monTableau2[2]=" + monTableau2[2] + "\n" + 
+       "longueur monTableau2=" + monTableau2.length );
+
+// Initialisation tableau associatif - Possibilité 1
+var monTableau3 = {}; 
+monTableau3["Lundi"] = "Potage";
+monTableau3["Mardi"] = "Soupe";
+monTableau3["Mercredi"] = "Bouillon";
+monTableau3["Jeudi"] = "Eau chaude";
+monTableau3["Vendredi"] = "Eau froide";
+display_array(monTableau3); // KO !
+// alert("monTableau3[Lundi]=" + monTableau3["Lundi"]);
+
+// Initialisation tableau associatif - Possibilité 2
+var monTableau4 = { 
+	Lundi : "Potage",
+	Mardi : "Soupe",
+	Mercredi : "Bouillon",
+	Jeudi : "Eau chaude",
+	Vendredi : "Eau froide"
+};
+display_array(monTableau4);
+
+for( var cle in monTableau4 )
+{
+	display_var( cle + ": " + monTableau4[cle] );
+}
+
+</script>
+
+</body>
+</html>

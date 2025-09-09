@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Exo 16-01 : jQuery, premiers pas</title>
+<style type="text/css" media="all">
+  table {
+	border: 2px solid 
+  }
+  th {
+	background-color: #FFCC66;
+  }
+  td {
+	text-align:right;
+  }
+  div {
+    border: 2px solid blue;
+	width:480px;
+  }
+</style>
+<script
+ src="https://code.jquery.com/jquery-3.4.1.js"   
+ integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+ crossorigin="anonymous" ></script>
+<script>
+
+/*
+ * Ce code est exécuté après le chargement complet du document 
+ */
+$(function() 
+{
+	alert("Ici, le DOM est entièrement défini");
+
+	// Modifier le contenu d'un élément repéré par son selector
+	$("#exo1601").html("Hello World !");
+	
+	// Tout le texte en italique
+	$("*").css('font-style',"italic");
+
+	// chainage 
+	// effet artistique 1
+	$('.rouge').css('background','red').css('color','yellow');
+	// équivalent à 
+	// $('.rouge').css('background','red');
+	// $('.rouge').css('color','yellow');
+	
+	// effet artistique 2
+	// callback
+    $("table.rouge td").fadeOut("slow",function(){
+      $(this).fadeIn("slow");
+    }); 
+	
+});
+
+</script>
+</head>
+<body>
+
+<h1>Ma petite entreprise</h1>
+
+<div id="contenu">
+  Voici la publication des r&eacute;sultats de ma petite entreprise.
+</div>
+
+<div id="contenu2">
+  Vous trouverez toutes les donn&eacute;es dans le tableau ci dessous.
+</div>
+
+<div id="result"><table id="tab_res" class="rouge">
+  <tr>
+	<th>Pays</th>
+	<th>Chiffre d'affaires</th>
+	<th>R&eacute;sultats</th>        
+  </tr>
+  <tr>
+	<td>Belgique</td>
+	<td>€ 50000</td>
+	<td>€ 12000</td>        
+  </tr>
+  <tr>
+	<td>France</td>
+	<td>€ 150000</td>
+	<td>€ 20000</td>        
+  </tr>
+  <tr>
+	<td>USA</td>
+	<td>$ 20000</td>
+	<td>$ -2000</td>        
+  </tr>      
+</table></div>
+
+<div id="exo1601">
+	Rien à signaler
+</div>
+
+</body>
+</html>

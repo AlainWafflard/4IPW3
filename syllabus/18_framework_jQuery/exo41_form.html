@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>exo16-41 : jQuery, sélecteurs CSS et forms</title>
+	<script
+	 src="https://code.jquery.com/jquery-3.4.1.js"   
+	 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	 crossorigin="anonymous" ></script>
+    <script>
+	$( function() {
+	
+      $("button").click(function() {
+
+		// écrire "Michel" dans l'input
+		$('input#nom').val('Michel');
+
+		// écrire "MichelMichel" dans le password
+		$('input#pass').val( 
+			$('input#nom').val()+$('input#nom').val() 
+		);
+
+		// sélectionner "retraite" dans la liste
+		$('#fonction').val('retraite');
+
+		// sélectionner "H" dans le radio 
+		$('input:radio').val(['H']);
+
+		// afficher "H" (true)
+		alert("H selected ? " + $('input:radio#H:checked').val());
+		
+		// afficher "undefined" (false)
+		alert("F selected ? " + $('input:radio#F:checked').val());
+
+      });
+	});
+    </script>
+  </head>
+  <body>
+	<h1>Exo16-41 : Manipuler dynamiquement le contenu d'un formulaire</h1>
+	<ul>
+		<li>écrire dans un input</li>
+		<li>lire un input</li>
+		<li>sélectionner dans une liste</li>
+		<li>sélectionner dans une radio</li>
+	</ul>
+	<hr />
+	
+    <form method="post" id="form">
+      <label>Nom d'utilisateur</label>
+      <input type="text" id="nom"><br />
+
+      <label>Mot de passe</label>
+      <input type="password" id="pass"><br />
+
+      <label>Sexe</label>
+      H <input type="radio" id="H" name="sexe" value="H">
+      F <input type="radio" id="F" name="sexe" value="F"><br />
+
+      <label>Fonction</label>
+      <select id="fonction">
+        <option value="etudiant">Etudiant</option>
+        <option value="ingenieur">Ingénieur</option>
+        <option value="enseignant">Enseignant</option>
+        <option value="retraite">Retraité</option>
+        <option value="autre">Autre</option>
+      </select>
+
+	<hr />
+      <button type="button">
+		Modifier les champs !
+	  </button>
+    </form> 
+
+  </body>
+</html>
