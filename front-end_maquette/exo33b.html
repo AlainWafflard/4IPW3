@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Evènements</title>
+	<style type="text/css">
+	#lumiere {
+		background-color: white; 
+		padding:8px;
+		width:210px;
+	}
+	#target {
+		width:200px;
+	}
+	</style>
+	<script>
+	window.addEventListener("load", function() {
+		const target = document.getElementById("target")
+		const lumiere = document.getElementById("lumiere")
+
+		target.addEventListener( "keydown", function() {
+			lumiere.setAttribute("style", 'background-color:green;')
+		})
+		target.addEventListener( "keyup", function() {
+			lumiere.setAttribute("style", 'background-color:white;')
+		})
+	});
+	</script>
+</head>
+<body>
+	<div id="lumiere">
+		<textarea id="target"></textarea>
+	</div>
+</body>
+</html>
