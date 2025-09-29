@@ -1,0 +1,102 @@
+21:22:31.084: [4IPW3-git] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -- front-end_maquette/media/Passports.jpeg front-end_maquette/js/article.js front-end_maquette/user.html front-end_maquette/media/Espagne.jpeg front-end_maquette/media/Suisse.png front-end_maquette/media/facebook.svg front-end_maquette/media/linkedin.svg front-end_maquette/media/cyberattaque-france.jpg front-end_maquette/media/Icon1.png front-end_maquette/article.html front-end_maquette/apropos.html "front-end_maquette/media/personal info.png" front-end_maquette/exo24.html front-end_maquette/exo33b.html "front-end_maquette/media/personal info1.svg" front-end_maquette/media/Filigran.jpeg front-end_maquette/media/Thales.jpeg front-end_maquette/main.css front-end_maquette/media/CyberVadis.png front-end_maquette/exo31.html front-end_maquette/index.html front-end_maquette/exo33.html front-end_maquette/media/Icon2.png front-end_maquette/media/list.svg front-end_maquette/media/Sitincloud.jpeg front-end_maquette/media/MoveIT.png front-end_maquette/media/Elba.jpeg front-end_maquette/media/whatsapp.svg front-end_maquette/media/Icon3.png
+warning: in the working copy of 'front-end_maquette/apropos.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/article.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/exo24.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/exo31.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/exo33b.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/main.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/media/facebook.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/media/linkedin.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/media/list.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/media/personal info1.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/media/whatsapp.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'front-end_maquette/user.html', LF will be replaced by CRLF the next time Git touches it
+21:22:37.724: [4IPW3-git] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- front-end_maquette/index.html front-end_maquette/media/Passports.jpeg "front-end_maquette/media/personal info.png" front-end_maquette/apropos.html front-end_maquette/media/MoveIT.png front-end_maquette/media/Filigran.jpeg front-end_maquette/exo24.html front-end_maquette/media/linkedin.svg front-end_maquette/js/index.js front-end_maquette/exo33.html front-end_maquette/media/facebook.svg front-end_maquette/exo31.html front-end_maquette/js/article.js front-end_maquette/media/cyberattaque-france.jpg front-end_maquette/media/Elba.jpeg front-end_maquette/media/Icon2.png front-end_maquette/media/whatsapp.svg front-end_maquette/media/Thales.jpeg front-end_maquette/user.html front-end_maquette/media/Icon1.png front-end_maquette/media/Icon3.png front-end_maquette/media/Espagne.jpeg front-end_maquette/exo33b.html front-end_maquette/main.css "front-end_maquette/media/personal info1.svg" front-end_maquette/article.html front-end_maquette/media/list.svg front-end_maquette/media/Suisse.png front-end_maquette/media/CyberVadis.png front-end_maquette/media/Sitincloud.jpeg
+21:22:37.822: [4IPW3-git] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\PROF\AppData\Local\Temp\git-commit-msg-.txt --
+[master (root-commit) 41ae742] cours 2025-09-29
+ 30 files changed, 1218 insertions(+)
+ create mode 100644 front-end_maquette/apropos.html
+ create mode 100644 front-end_maquette/article.html
+ create mode 100644 front-end_maquette/exo24.html
+ create mode 100644 front-end_maquette/exo31.html
+ create mode 100644 front-end_maquette/exo33.html
+ create mode 100644 front-end_maquette/exo33b.html
+ create mode 100644 front-end_maquette/index.html
+ create mode 100644 front-end_maquette/js/article.js
+ create mode 100644 front-end_maquette/js/index.js
+ create mode 100644 front-end_maquette/main.css
+ create mode 100644 front-end_maquette/media/CyberVadis.png
+ create mode 100644 front-end_maquette/media/Elba.jpeg
+ create mode 100644 front-end_maquette/media/Espagne.jpeg
+ create mode 100644 front-end_maquette/media/Filigran.jpeg
+ create mode 100644 front-end_maquette/media/Icon1.png
+ create mode 100644 front-end_maquette/media/Icon2.png
+ create mode 100644 front-end_maquette/media/Icon3.png
+ create mode 100644 front-end_maquette/media/MoveIT.png
+ create mode 100644 front-end_maquette/media/Passports.jpeg
+ create mode 100644 front-end_maquette/media/Sitincloud.jpeg
+ create mode 100644 front-end_maquette/media/Suisse.png
+ create mode 100644 front-end_maquette/media/Thales.jpeg
+ create mode 100644 front-end_maquette/media/cyberattaque-france.jpg
+ create mode 100644 front-end_maquette/media/facebook.svg
+ create mode 100644 front-end_maquette/media/linkedin.svg
+ create mode 100644 front-end_maquette/media/list.svg
+ create mode 100644 front-end_maquette/media/personal info.png
+ create mode 100644 front-end_maquette/media/personal info1.svg
+ create mode 100644 front-end_maquette/media/whatsapp.svg
+ create mode 100644 front-end_maquette/user.html
+21:23:22.179: [4IPW3-git] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/master:refs/heads/master --set-upstream
+error: failed to push some refs to 'https://github.com/AlainWafflard/4IPW3'
+To https://github.com/AlainWafflard/4IPW3
+hint: Updates were rejected because the remote contains work that you do not
+!	refs/heads/master:refs/heads/master	[rejected] (fetch first)
+hint: have locally. This is usually caused by another repository pushing to
+Done
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+21:24:30.974: [4IPW3-git] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\PROF\AppData\Local\Temp\git-commit-msg-.txt --amend --
+[master c992d88] cours 2025-09-29
+ Date: Mon Sep 29 21:22:37 2025 +0200
+ 30 files changed, 1218 insertions(+)
+ create mode 100644 front-end_maquette/apropos.html
+ create mode 100644 front-end_maquette/article.html
+ create mode 100644 front-end_maquette/exo24.html
+ create mode 100644 front-end_maquette/exo31.html
+ create mode 100644 front-end_maquette/exo33.html
+ create mode 100644 front-end_maquette/exo33b.html
+ create mode 100644 front-end_maquette/index.html
+ create mode 100644 front-end_maquette/js/article.js
+ create mode 100644 front-end_maquette/js/index.js
+ create mode 100644 front-end_maquette/main.css
+ create mode 100644 front-end_maquette/media/CyberVadis.png
+ create mode 100644 front-end_maquette/media/Elba.jpeg
+ create mode 100644 front-end_maquette/media/Espagne.jpeg
+ create mode 100644 front-end_maquette/media/Filigran.jpeg
+ create mode 100644 front-end_maquette/media/Icon1.png
+ create mode 100644 front-end_maquette/media/Icon2.png
+ create mode 100644 front-end_maquette/media/Icon3.png
+ create mode 100644 front-end_maquette/media/MoveIT.png
+ create mode 100644 front-end_maquette/media/Passports.jpeg
+ create mode 100644 front-end_maquette/media/Sitincloud.jpeg
+ create mode 100644 front-end_maquette/media/Suisse.png
+ create mode 100644 front-end_maquette/media/Thales.jpeg
+ create mode 100644 front-end_maquette/media/cyberattaque-france.jpg
+ create mode 100644 front-end_maquette/media/facebook.svg
+ create mode 100644 front-end_maquette/media/linkedin.svg
+ create mode 100644 front-end_maquette/media/list.svg
+ create mode 100644 front-end_maquette/media/personal info.png
+ create mode 100644 front-end_maquette/media/personal info1.svg
+ create mode 100644 front-end_maquette/media/whatsapp.svg
+ create mode 100644 front-end_maquette/user.html
+21:24:37.414: [4IPW3-git] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/master:refs/heads/master --set-upstream
+error: failed to push some refs to 'https://github.com/AlainWafflard/4IPW3'
+To https://github.com/AlainWafflard/4IPW3
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+!	refs/heads/master:refs/heads/master	[rejected] (fetch first)
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+Done
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
