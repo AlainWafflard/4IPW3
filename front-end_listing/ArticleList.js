@@ -6,6 +6,18 @@ export default {
       <main class="article-list">
 
         <h1>{{ title }}</h1>
+
+        <h3 v-if="selectedArticle" >A la une</h3>
+
+        <article v-if="selectedArticle" class="article-detail">
+          <h2>{{ selectedArticle.title }}</h2>
+          <p><em>{{ selectedArticle.author }}</em></p>
+          <p>{{ selectedArticle.body }}</p>
+          <button @click="hideArticle(selectedArticle)" class="close-btn">
+            Fermer
+          </button>
+        </article>
+
         <h3>{{ nombreArticles }} articles disponibles</h3>
     
         <section class="articles">
@@ -28,14 +40,6 @@ export default {
           </article>
         </section>
 
-        <div v-if="selectedArticle" class="article-detail">
-          <h2>{{ selectedArticle.title }}</h2>
-          <p>{{ selectedArticle.content }}</p>
-          <button @click="hideArticle(selectedArticle)" class="close-btn">
-            Fermer
-          </button>
-        </div>
-
       </main>
     `,
 
@@ -47,64 +51,229 @@ export default {
             hoveredId: null,
             articles: [
                 {
-                    id: 1,
-                    title: "L'essor des énergies renouvelables",
-                    resume: "En 2025, les énergies renouvelables représentent 40% de la production mondiale d'électricité.",
-                    content: "En 2025, les énergies renouvelables ont connu une croissance sans précédent, grâce aux avancées technologiques et aux politiques gouvernementales incitatives. Les panneaux solaires et les éoliennes sont désormais omniprésents, réduisant significativement les émissions de CO2..."
+                    id: 1001,
+                    title: "Les bases de Vue.js 3 : un guide pour débutants",
+                    body: "Vue.js est un framework progressif pour construire des interfaces utilisateur. Découvrez ses concepts de base...",
+                    author: "Marie Dupont",
+                    readingTime: 8,
+                    category: "Développement Web",
+                    more: "Ce guide couvre les directives, les composants et la réactivité."
                 },
                 {
-                    id: 2,
-                    title: "Les bienfaits de la méditation",
-                    resume: "Une étude récente montre que 10 minutes de méditation par jour améliorent la concentration.",
-                    content: "Une étude menée par l'Université de Harvard a révélé que la méditation quotidienne, même pour une courte durée, a des effets significatifs sur la réduction du stress et l'amélioration des fonctions cognitives. Les participants ont montré une augmentation de 20% de leur capacité à se concentrer après seulement 4 semaines de pratique..."
+                    id: 1002,
+                    title: "CSS moderne : Flexbox et Grid en pratique",
+                    body: "Flexbox et CSS Grid sont des outils puissants pour créer des mises en page responsives. Apprenez à les combiner...",
+                    author: "Jean Martin",
+                    readingTime: 12,
+                    category: "Design",
+                    more: "Exemples concrets et cas d'usage pour chaque technique."
                 },
                 {
-                    id: 3,
-                    title: "Voyage dans l'espace : une réalité pour les touristes",
-                    resume: "Les voyages spatiaux deviennent accessibles au grand public grâce à des entreprises privées.",
-                    content: "Avec l'émergence de sociétés comme SpaceX et Blue Origin, le tourisme spatial n'est plus un rêve lointain. Dès 2026, des vols suborbitaux seront proposés à des tarifs abordables, permettant à des centaines de personnes de vivre l'expérience de l'apesanteur et d'admirer la Terre depuis l'espace..."
+                    id: 1003,
+                    title: "JavaScript ES6 : les fonctionnalités incontournables",
+                    body: "ES6 a introduit des fonctionnalités majeures comme les classes, les promesses et les template literals...",
+                    author: "Sophie Leroy",
+                    readingTime: 10,
+                    category: "JavaScript",
+                    more: "Un tour d'horizon des fonctionnalités les plus utiles."
                 },
                 {
-                    id: 4,
-                    title: "L'intelligence artificielle dans la santé",
-                    resume: "L'IA révolutionne le diagnostic médical avec une précision inégalée.",
-                    content: "Les algorithmes d'intelligence artificielle sont désormais capables de détecter des maladies comme le cancer à un stade précoce, avec une précision supérieure à celle des médecins. Des outils comme IBM Watson ou DeepMind de Google analysent des millions de données pour fournir des diagnostics en quelques secondes..."
+                    id: 1004,
+                    title: "Comment optimiser les performances d'une application Vue.js",
+                    body: "Les applications Vue.js peuvent ralentir si elles ne sont pas optimisées. Voici des astuces pour les accélérer...",
+                    author: "Pierre Moreau",
+                    readingTime: 15,
+                    category: "Développement Web",
+                    more: "Lazy loading, memoization et bonnes pratiques."
                 },
                 {
-                    id: 5,
-                    title: "Les villes du futur",
-                    resume: "Les smart cities intègrent la technologie pour améliorer la qualité de vie.",
-                    content: "Les villes intelligentes utilisent des capteurs et des réseaux connectés pour optimiser la gestion des ressources, réduire la pollution et améliorer les services publics. Singapour et Copenhague sont souvent citées comme des modèles de villes durables et technologiquement avancées..."
+                    id: 1005,
+                    title: "Les bonnes pratiques en UX Design pour 2025",
+                    body: "L'expérience utilisateur évolue rapidement. Découvrez les tendances et bonnes pratiques pour cette année...",
+                    author: "Élodie Lambert",
+                    readingTime: 9,
+                    category: "Design",
+                    more: "Accessibilité, micro-interactions et design inclusif."
                 },
                 {
-                    id: 6,
-                    title: "L'impact des réseaux sociaux sur la santé mentale",
-                    resume: "Une étude révèle que les réseaux sociaux augmentent l'anxiété chez les jeunes.",
-                    content: "Les plateformes comme Instagram et TikTok sont pointées du doigt pour leur rôle dans l'augmentation des troubles anxieux et dépressifs chez les adolescents. Les comparaisons sociales et la recherche de validation en ligne sont identifiées comme les principaux facteurs de risque..."
+                    id: 1006,
+                    title: "Introduction à Node.js et ses modules",
+                    body: "Node.js permet d'exécuter du JavaScript côté serveur. Découvrez ses modules essentiels comme fs et http...",
+                    author: "Thomas Bernard",
+                    readingTime: 14,
+                    category: "Backend",
+                    more: "Création d'un serveur simple et gestion des dépendances."
                 },
                 {
-                    id: 7,
-                    title: "La révolution des véhicules électriques",
-                    resume: "Les voitures électriques dominent désormais le marché automobile.",
-                    content: "Avec des modèles comme la Tesla Model 3 ou la Renault Zoé, les véhicules électriques représentent désormais plus de 30% des ventes de voitures neuves en Europe. Les gouvernements encouragent cette transition avec des subventions et des infrastructures de recharge de plus en plus développées..."
+                    id: 1007,
+                    title: "Les erreurs courantes en JavaScript et comment les éviter",
+                    body: "Même les développeurs expérimentés commettent des erreurs. Voici les pièges à éviter en JavaScript...",
+                    author: "Camille Petit",
+                    readingTime: 7,
+                    category: "JavaScript",
+                    more: "Hoisting, scope, et gestion des erreurs asynchrones."
                 },
                 {
-                    id: 8,
-                    title: "Le télétravail : une nouvelle norme",
-                    resume: "Le télétravail s'impose comme une pratique courante dans les entreprises.",
-                    content: "Depuis la pandémie de 2020, le télétravail est devenu une norme pour de nombreuses entreprises. Des études montrent que cette pratique améliore la productivité et réduit le stress lié aux trajets, tout en posant de nouveaux défis en termes de gestion d'équipe et de cohésion sociale..."
+                    id: 1008,
+                    title: "Vue Router : naviguer entre les pages d'une application",
+                    body: "Vue Router est la bibliothèque officielle pour gérer la navigation dans une application Vue.js...",
+                    author: "Lucie Dubois",
+                    readingTime: 11,
+                    category: "Développement Web",
+                    more: "Configuration des routes, navigation dynamique et garde de navigation."
                 },
                 {
-                    id: 9,
-                    title: "La blockchain au-delà des cryptomonnaies",
-                    resume: "La technologie blockchain trouve des applications dans divers secteurs.",
-                    content: "Initialement associée aux cryptomonnaies comme le Bitcoin, la blockchain est désormais utilisée pour sécuriser les transactions dans des domaines variés : traçabilité des produits alimentaires, gestion des droits d'auteur, ou encore vote électronique. Sa transparence et son immuabilité en font un outil précieux pour la confiance numérique..."
+                    id: 1009,
+                    title: "Les outils indispensables pour un développeur front-end en 2025",
+                    body: "De VS Code à Figma, en passant par Git, voici les outils qui feront de vous un développeur plus productif...",
+                    author: "Antoine Girard",
+                    readingTime: 6,
+                    category: "Outils",
+                    more: "Extensions, plugins et workflows optimisés."
                 },
                 {
-                    id: 10,
-                    title: "L'éducation en ligne : une alternative viable",
-                    resume: "Les plateformes d'apprentissage en ligne gagnent en popularité.",
-                    content: "Des plateformes comme Coursera, Udemy ou Khan Academy démocratisent l'accès à l'éducation pour des millions de personnes dans le monde. Ces outils permettent d'apprendre à son rythme, avec des cours dispensés par des experts dans divers domaines, allant de la programmation à la philosophie..."
+                    id: 1010,
+                    title: "Comprendre le fonctionnement des Web Components",
+                    body: "Les Web Components permettent de créer des éléments personnalisés réutilisables dans le navigateur...",
+                    author: "Claire Fontaine",
+                    readingTime: 13,
+                    category: "Développement Web",
+                    more: "Custom Elements, Shadow DOM et templates HTML."
+                },
+                {
+                    id: 1011,
+                    title: "Les tendances du design graphique en 2025",
+                    body: "Le design graphique évolue avec de nouvelles tendances chaque année. Voici ce qui marque 2025...",
+                    author: "Jean Martin",
+                    readingTime: 8,
+                    category: "Design",
+                    more: "Couleurs, typographies et animations en vogue."
+                },
+                {
+                    id: 1012,
+                    title: "Gérer l'état global avec Pinia dans Vue.js",
+                    body: "Pinia est la bibliothèque recommandée pour gérer l'état global dans les applications Vue.js...",
+                    author: "Marie Dupont",
+                    readingTime: 10,
+                    category: "Développement Web",
+                    more: "Stores, actions et état réactif."
+                },
+                {
+                    id: 1013,
+                    title: "Les bases de TypeScript pour les développeurs JavaScript",
+                    body: "TypeScript ajoute des types statiques à JavaScript, ce qui améliore la robustesse du code...",
+                    author: "Nicolas Lefèvre",
+                    readingTime: 12,
+                    category: "JavaScript",
+                    more: "Interfaces, types génériques et configuration."
+                },
+                {
+                    id: 1014,
+                    title: "Créer des animations fluides avec CSS et JavaScript",
+                    body: "Les animations améliorent l'expérience utilisateur. Découvrez comment les créer avec CSS et JavaScript...",
+                    author: "Élodie Lambert",
+                    readingTime: 9,
+                    category: "Design",
+                    more: "Transitions, keyframes et bibliothèques d'animation."
+                },
+                {
+                    id: 1015,
+                    title: "Sécurité des applications web : les bonnes pratiques",
+                    body: "La sécurité est cruciale pour toute application web. Voici comment protéger vos utilisateurs...",
+                    author: "Marc Renard",
+                    readingTime: 16,
+                    category: "Backend",
+                    more: "OWASP, injections SQL et protection des données."
+                },
+                {
+                    id: 1016,
+                    title: "Les nouveautés de Vue.js 4 : ce qui change",
+                    body: "Vue.js 4 apporte son lot de nouveautés. Découvrez les améliorations et les nouvelles fonctionnalités...",
+                    author: "Sophie Leroy",
+                    readingTime: 11,
+                    category: "Développement Web",
+                    more: "Performances, nouvelle API et outils de développement."
+                },
+                {
+                    id: 1017,
+                    title: "Comment contribuer à un projet open source",
+                    body: "Contribuer à un projet open source est une excellente façon d'apprendre et de partager ses compétences...",
+                    author: "Thomas Bernard",
+                    readingTime: 7,
+                    category: "Outils",
+                    more: "Fork, pull requests et bonnes pratiques de contribution."
+                },
+                {
+                    id: 1018,
+                    title: "Les frameworks CSS les plus populaires en 2025",
+                    body: "Les frameworks CSS comme Tailwind, Bootstrap et Bulma dominent le paysage du développement front-end...",
+                    author: "Camille Petit",
+                    readingTime: 8,
+                    category: "Design",
+                    more: "Comparaison des fonctionnalités et cas d'usage."
+                },
+                {
+                    id: 1019,
+                    title: "Déployer une application Vue.js avec Vercel ou Netlify",
+                    body: "Déployer une application Vue.js n'a jamais été aussi simple grâce à Vercel et Netlify...",
+                    author: "Antoine Girard",
+                    readingTime: 5,
+                    category: "Outils",
+                    more: "Configuration, CI/CD et bonnes pratiques de déploiement."
+                },
+                {
+                    id: 1020,
+                    title: "Les principes SOLID appliqués à JavaScript",
+                    body: "Les principes SOLID sont des bonnes pratiques pour écrire du code maintenable et évolutif...",
+                    author: "Claire Fontaine",
+                    readingTime: 14,
+                    category: "JavaScript",
+                    more: "Exemples concrets pour chaque principe."
+                },
+                {
+                    id: 1021,
+                    title: "Créer un thème sombre pour votre site web",
+                    body: "Les thèmes sombres sont populaires pour leur confort visuel. Voici comment en créer un pour votre site...",
+                    author: "Pierre Moreau",
+                    readingTime: 6,
+                    category: "Design",
+                    more: "CSS variables, préférences utilisateur et accessibilité."
+                },
+                {
+                    id: 1022,
+                    title: "Les tests unitaires avec Jest et Vue Test Utils",
+                    body: "Les tests unitaires sont essentiels pour garantir la qualité de votre code. Découvrez Jest et Vue Test Utils...",
+                    author: "Lucie Dubois",
+                    readingTime: 13,
+                    category: "Outils",
+                    more: "Configuration, écriture de tests et mocking."
+                },
+                {
+                    id: 1023,
+                    title: "Les API REST : bonnes pratiques et exemples",
+                    body: "Les API REST sont au cœur des applications modernes. Voici comment les concevoir et les utiliser...",
+                    author: "Nicolas Lefèvre",
+                    readingTime: 10,
+                    category: "Backend",
+                    more: "Endpoints, méthodes HTTP et gestion des erreurs."
+                },
+                {
+                    id: 1024,
+                    title: "Les hooks React pour les développeurs Vue.js",
+                    body: "Si vous connaissez Vue.js, voici comment comprendre et utiliser les hooks React...",
+                    author: "Marie Dupont",
+                    readingTime: 9,
+                    category: "Développement Web",
+                    more: "Comparaison des concepts et exemples pratiques."
+                },
+                {
+                    id: 1025,
+                    title: "Les outils de monitoring pour les applications web",
+                    body: "Surveiller les performances et les erreurs de votre application est crucial. Découvrez les outils disponibles...",
+                    author: "Jean Martin",
+                    readingTime: 8,
+                    category: "Outils",
+                    more: "Google Analytics, Sentry et Lighthouse."
                 }
             ],
         };
