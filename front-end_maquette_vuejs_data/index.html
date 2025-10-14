@@ -14,9 +14,17 @@
     <script type="module"  src="app.js"></script>
     <link rel="stylesheet" href="global.css">
 </head>
-<body>
+<body id="app">
 
-<div id="app"></div>
+<press-menu></press-menu>
+
+<article-list
+    :page="currentPage">
+</article-list>
+
+<about
+    :page="currentPage">
+</about>
 
 </body>
 </html>

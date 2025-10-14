@@ -69,3 +69,12 @@
     cursor: pointer;
     margin-top: 10px;
 }
+
+nav ul {
+    background-color:whitesmoke;
+    list-style: none;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}

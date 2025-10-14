@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 
-// import App from "app.js";
-import ArticleList from "./ArticleList.js";
-
+import ArticleList from "./components/ArticleList.js";
+import Menu from "./components/Menu.js";
+import About from "./components/About.js";
 
 createApp({
 
@@ -10,12 +10,24 @@ createApp({
 
   components: {
     ArticleList,
+    About,
+    'press-menu' : Menu,
   },
 
-  template : `
-    <div id="app">
-      <ArticleList />
-    </div>
-  `,
+  data() {
+    return {
+      currentPage: 'home', // Page par défaut
+    }
+  },
+
+  methods: {
+    showPage(page) {
+      this.currentPage = page;
+      // Optionnel : Mettre à jour l'URL (sans rechargement)
+      // window.history.pushState({}, '', `#${page}`);
+    },
+  },
 
 }).mount("#app");
+
+
