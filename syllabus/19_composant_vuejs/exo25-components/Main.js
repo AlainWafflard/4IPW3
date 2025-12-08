@@ -9,16 +9,16 @@ export default {
             <h3>{{ contents.length }} articles</h3>
             <section v-for="content in contents" :key="content.id">
                 <div
-                  v-on:mouseover="HoveredId = content.id;"
-                  v-on:mouseout="HoveredId = -1"
-                  v-bind:class="HoveredId==content.id ? 'card_mouseover' : 'card_mouseout'"
+                  @mouseover="HoveredId = content.id;"
+                  @mouseout="HoveredId = -1"
+                  :class="HoveredId==content.id ? 'card_mouseover' : 'card_mouseout'"
                 >
                     <h3>{{ content.title }}</h3>
                     <p>{{ content.body }}</p>
                     <p v-show="this.verbose_b" ><em>
                        {{ content.more }}   
                     </em></p>
-                    <button v-on:click="display_metadata(content)" >
+                    <button @click="popup" >
                         cliquez-moi
                     </button>
                 </div>
@@ -70,14 +70,7 @@ export default {
 
     methods: {
         popup() {
-            alert("You are not a clown !")
-        },
-        display_metadata(o) {
-            const s= `
-                Article : id = ${o.id}<br>
-                Titre : ${o.title}
-            `
-            document.getElementById("metadata").innerHTML = s
+            alert("You are a clown !")
         }
     },
 

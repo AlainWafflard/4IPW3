@@ -1,7 +1,7 @@
 <?php
-require_once('param.php');
-require_once('mylib.php');
-require_once('mylib.php');
+include_once('param.php');
+include_once('mylib.php');
+include_once('mylib.php');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,51 +10,9 @@ require_once('mylib.php');
 </head>
 <body>
 
-<h1>
-    <?php
-    echo $title;
-    ?>
-</h1>
+<h1><?php echo $title; ?></h1>
 
 <h2><?=hello_world($name)?></h2>
-
-<ul>
-<?php
-$my_array = [ 'Philippe', 'Adrien', 'Josette' ];
-
-foreach ( $my_array as $nom )
-{
-    echo "<li>$nom";
-}
-
-?>
-</ul>
-<?php
-foreach( array(5,6,2,4,5,9,6,'F') as $val )
-{
-    echo <<< HTML
-        <div style="background-color:#{$val}AA;">
-          $val
-        </div>;
-HTML;
-}
-
-$salaries = [
-        "mohammad" => 2000,
-         "qadir" => 1000,
-         "zara" => 500
-];
-$salaries['hammad'] = 4000;
-unset($salaries['qadir']);
-
-echo "<ul>";
-
-foreach ( $salaries as $nom => $sal  )
-{
-    echo "<li>$nom gagne $sal";
-}
-echo "</ul>";
-?>
 <p>
     <?=$name?>
     <?php
@@ -109,9 +67,7 @@ echo "</ul>";
         }
     }
 
-// factorielle
-  echo "<div>" . factorielle(5.5). "</div>";
-  echo "<div>" . factorielle(10) . "</div>";
+
 
   ?>
 </p>

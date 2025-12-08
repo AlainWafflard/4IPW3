@@ -1,5 +1,11 @@
 <?php
-declare(strict_types=1);
+
+
+
+/*function hello_world()
+{
+	return "Hello World !";
+}*/
 
 function hello_world( $name='')
 {
@@ -21,12 +27,3 @@ function concat_string( & $s)
 {
 	$s .= " et plein d'autres choses";
 }
-
-function factorielle( int $n)
-{
-    // n! = n * (n-1)!
-    // ex. 4! = 4 * 3!
-    if( $n <= 1 ) return 1;
-    return $n * factorielle($n-1);
-}
-

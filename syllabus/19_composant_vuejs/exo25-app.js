@@ -13,10 +13,10 @@ createApp({
         'footer-component': FooterComponent
     },
 
-    data(){
+    data() {
         return {
             verbose       : true,
-            header_theme  : "dark" // alt. is "light" or "dark"
+            header_theme  : "light" // alt. is "light" or "dark"
         }
     }
 
