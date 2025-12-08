@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>exo41 : forms</title>
+    <script>
+    window.addEventListener('load', function() {
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', function() {
+          // Écrire "Michel" dans l'input "nom"
+          document.getElementById('nom').value = 'Michel';
+
+          // Écrire "MichelMichel" dans le champ "mot de passe"
+          const nomValue = document.getElementById('nom').value;
+          document.querySelector('input#pass').value = nomValue + nomValue;
+
+          // Sélectionner "retraite" dans la liste déroulante
+          document.getElementById('fonction').value = 'retraite';
+
+          // Sélectionner l'élément d'id "H" dans les boutons radio de nom "sexe"
+          const selH = 'input[type="radio"][name="sexe"]#H'
+          document.querySelector(selH).checked = true
+
+          // Afficher "checked ? true"
+          const is_selH = document.querySelector(selH).checked;
+          alert("H selected ? " + (is_selH ? 'true' : 'false'));
+
+          // Afficher "checked ? false"
+          const is_selF = document.getElementById('F').checked;
+          alert("F selected ? " + (is_selF ? 'true' : 'false'));
+      });
+    });
+    </script>
+
+  </head>
+  <body>
+	<h1>Exo16-41 : Manipuler dynamiquement le contenu d'un formulaire</h1>
+	<ul>
+		<li>écrire dans un input</li>
+		<li>lire un input</li>
+		<li>sélectionner dans une liste</li>
+		<li>sélectionner dans une radio</li>
+	</ul>
+	<hr />
+	
+    <form method="post" id="form">
+      <label>Nom d'utilisateur</label>
+      <input type="text" id="nom"><br />
+
+      <label>Mot de passe</label>
+      <input type="password" id="pass"><br />
+
+      <label>Sexe</label>
+      H <input type="radio" id="H" name="sexe" value="H">
+      F <input type="radio" id="F" name="sexe" value="F"><br />
+
+      <label>Fonction</label>
+      <select id="fonction">
+        <option value="etudiant">Etudiant</option>
+        <option value="ingenieur">Ingénieur</option>
+        <option value="enseignant">Enseignant</option>
+        <option value="retraite">Retraité</option>
+        <option value="autre">Autre</option>
+      </select>
+
+	<hr />
+      <button type="button">
+		Modifier les champs !
+	  </button>
+    </form> 
+
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>exo15-04 : les tableaux en JavaScript</title>
+
+<script>
+/**
+ *  display_va affiche le contenu de la variable dans DIV#affiche
+ */
+function display_var($va)
+{
+	can = document.getElementById("affiche");
+	can.innerHTML = can.innerHTML + $va + "<br/>";
+}
+
+/**
+ *  display_array affiche le contenu du tableau dans DIV#affiche
+ */
+function display_array($ar)
+{
+	// alert($ar.join('\n'));
+	// alert(JSON.stringify($ar)) 
+	can = document.getElementById("affiche");
+	can.innerHTML = can.innerHTML + JSON.stringify($ar) + "<br/>";
+}
+</script>
+</head>
+<body>
+
+<div id="affiche"></div>
+
+<script type="text/javascript">
+
+// Initialisation tableau indexé - Possibilité 1
+const monTableau1 = ["Pierre","Paul"];
+display_array(monTableau1);
+
+// Ajouter un élément. Index commence à 0.
+monTableau1[2] = "Jacques"; //ajoute un 3ième élément
+display_array(monTableau1);
+
+// Ajouter un élément
+monTableau1.push("Jacques");
+display_array(monTableau1);
+
+// Longueur du tableau
+display_var( "monTableau1[2]=" + monTableau1[2] + "\n" + 
+       "longueur monTableau1=" + monTableau1.length );
+
+// Initialisation tableau associatif - Possibilité 1
+const monTableau3 = {};
+monTableau3["Lundi"] = "Potage";
+monTableau3["Mardi"] = "Soupe";
+monTableau3["Mercredi"] = "Bouillon";
+monTableau3["Jeudi"] = "Eau chaude";
+monTableau3["Vendredi"] = "Eau froide";
+display_array(monTableau3); // KO !
+// alert("monTableau3[Lundi]=" + monTableau3["Lundi"]);
+
+// Initialisation tableau associatif - Possibilité 2
+const monTableau4 = {
+	Lundi : "Potage",
+	Mardi : "Soupe",
+	Mercredi : "Bouillon",
+	Jeudi : "Eau chaude",
+	Vendredi : "Eau froide"
+};
+display_array(monTableau4);
+
+// Boucle sur les tableaux
+for( let cle in monTableau4 )
+{
+	display_var( cle + ": " + monTableau4[cle] );
+}
+
+monTableau4.forEach(element => display_var(element));
+
+// Filtrer un tableau
+const monTableau2 = monTableau1.filter(nom => nom.startsWith("P")); // noms commençant par "P"
+display_array(monTableau2) // ["Pierre", "Paul"]
+// remarque : usage de regexp possible
+// remarque : autres méthodes disponibles : .toLowerCase, .endsWith, .includes, .length, etc.
+
+// Trouver un élément dans le tableau
+const found = monTableau1.find(nom => nom === "Jacques")
+display_var(found)
+
+
+
+
+</script>
+
+</body>
+</html>

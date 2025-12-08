@@ -1,0 +1,108 @@
+{
+  "semaine": 37,
+  "année": 2025,
+  "nomCantine": "Les Délices de Tante Gertrude (approuvé par 3 élèves sur 10)",
+  "menus": [
+    {
+      "jour": "lundi",
+      "platPrincipal": {
+        "nom": "Mystère en sauce brune",
+        "description": "Un plat dont personne ne connaît les ingrédients, mais qui a une sauce. Toujours une sauce.",
+        "noteMoyenne": 2.5,
+        "commentaires": [
+          "Goût de carton... mais c'est peut-être DU carton ? — Jean-Michel (5ème)",
+          "La sauce a sauvé ma vie. — Marie (Terminale, désespérée)"
+        ],
+        "accompagnement": ["frites molles", "haricots verts (théoriquement)"],
+        "estVégétarien": false,
+        "estSansGluten": "Personne ne sait, même Tante Gertrude."
+      },
+      "dessert": {
+        "nom": "Compote surprise",
+        "couleurDominante": "marron suspect",
+        "texture": "granuleuse (comme du sable, mais en moins croquant)"
+      }
+    },
+    {
+      "jour": "mardi",
+      "platPrincipal": {
+        "nom": "Poulet 'style maison' (aka Poulet en plastique)",
+        "description": "Un morceau de viande qui résiste à la fourchette, au couteau, et même aux prières.",
+        "noteMoyenne": 1.8,
+        "commentaires": [
+          "J'ai cru que c'était du caoutchouc. — Pierre (3ème, futur ingénieur)",
+          "Au moins, il ne fond pas. — Sophie (2nde, optimiste)"
+        ],
+        "accompagnement": ["riz collant", "carottes (crues, parce que cuites, c'est trop demander)"]
+      },
+      "dessert": {
+        "nom": "Yaourt 'nature' (goût : regret)",
+        "datePeremption": "1998 (selon les rumeurs)",
+        "conseil": "Ne pas secouer. Jamais."
+      }
+    },
+    {
+      "jour": "mercredi",
+      "platPrincipal": {
+        "nom": "Jour sans viande (et sans goût)",
+        "description": "Un plat 100% végétal, 100% triste, et 200% suspect.",
+        "noteMoyenne": 1.2,
+        "commentaires": [
+          "J'ai pleuré. Pas à cause des oignons. — Lucas (4ème, sensible)",
+          "C'est la première fois que je vois des lentilles pleurer. — Élodie (1ère, poétique)"
+        ],
+        "accompagnement": ["pâtes (trop cuites)", "salade (flétrie, comme nos espoirs)"]
+      },
+      "dessert": {
+        "nom": "Fruit de saison (un seul, pour tout le monde)",
+        "type": "pomme (ou ce qui y ressemble)",
+        "état": "molle, avec une tache louche"
+      }
+    },
+    {
+      "jour": "jeudi",
+      "événementSpécial": {
+        "nom": "Jour de la 'Cuisine Expérimentale' (aka 'On a oublié de commander')",
+        "plat": {
+          "nom": "Sandwich 'Surprise du Chef'",
+          "ingrédients": ["pain rassis", "fromage (ou fromage-like substance)", "une tranche de *quelque chose*"],
+          "noteMoyenne": 0.5,
+          "commentaires": [
+            "J'ai préféré jeûner. — Thomas (Terminale, sage)",
+            "Le pain était tellement dur que j'ai pu graver mes initiales dessus. — Emma (6ème, artiste)"
+          ]
+        }
+      },
+      "dessert": {
+        "nom": "Cookie (un seul, partagé entre 5 tables)",
+        "taille": "plus petit qu'un bouton de chemise",
+        "goût": "désespoir et beurre rance"
+      }
+    },
+    {
+      "jour": "vendredi",
+      "platPrincipal": {
+        "nom": "Fish & Chips (version 'on a économisé sur le poisson')",
+        "description": "Un morceau de *poisson* (citation nécessaire) pané, avec des frites qui ont l'air de dater de la semaine dernière.",
+        "noteMoyenne": 3.0,
+        "commentaires": [
+          "Les frites étaient bonnes... si on ferme les yeux. — Antoine (5ème, optimiste)",
+          "J'ai cru reconnaître un bout de semelle. — Léa (3ème, observatrice)"
+        ]
+      },
+      "dessert": {
+        "nom": "Gâteau au chocolat (en théorie)",
+        "couleur": "marron (comme le reste de la semaine)",
+        "texture": "caoutchouteuse (comme le poulet de mardi)"
+      },
+      "noteDuJour": "Enfin vendredi ! Demain, c'est le week-end (et on peut manger normalement). — Toute la cantine, en chœur"
+    }
+  ],
+  "conseilDuNutritionniste": "Fuyez. Ou apportez votre pique-nique.",
+  "noteGlobale": {
+    "goût": 1.5,
+    "originalité": 10,
+    "mystère": 11,
+    "recommandation": "Seulement si vous aimez les défis culinaires (et les docteurs)."
+  }
+}

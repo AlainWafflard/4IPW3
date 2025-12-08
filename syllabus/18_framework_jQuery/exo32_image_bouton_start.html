@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>exo16-32 : Image mouvante</title>
+	<script
+	 src="https://code.jquery.com/jquery-3.4.1.js"   
+	 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	 crossorigin="anonymous" ></script>
+	<script>
+	$(function() {
+		// Exercice 
+		// 
+		// 1. Positionner l'image en top:100 et left:milieu de la page
+		//    tips : $(window).width()
+		//           .offset()
+		//
+		// 2. définir les évènements souris 
+		//    uniquement le click sur le bouton 
+		//    que l'image bouge de 10 pixels vers le bas
+		//    que le span d'id "my_index" (dans le bouton) 
+		//    compte le nombre de clicks (compteur variable globale)
+		//    tips : .click()
+		//           .offset()
+		//           .html()
+	});
+	</script>
+</head>
+<body>
+	<h1>Cliquez sur l'image</h1>
+	<button id="move">MOVE LOGO <span id="my_index">(0)</span></button>
+	<br/>
+	<img id="target" src="https://burotix.be/images/logo103x90-V6-beige_bg.png">
+</body>
+</html>

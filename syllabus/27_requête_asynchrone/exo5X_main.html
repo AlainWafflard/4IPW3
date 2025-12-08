@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Fetch / méthode .load()</title>
+	<style>
+	  div { width: 400px; height: 150px; margin: 5px; }
+	  #premier { background-color: #F6E497; }
+	  #deuxieme { background-color: #F1DBCA; }
+	  #troisieme { background-color: #CAF1EC; }
+	</style>
+  	<script defer>
+
+	function fetchResponse(button_id)
+	{
+		switch (button_id) {
+			case 'maj1':
+				// exemple 1
+				// charger contenu statique (fichier HTML)
+				// Code à exécuter si bouton "maj1" est cliqué
+				fetch('exo_maj1.html')
+					.then(response => {
+						// get response
+						if (!response.ok) {
+							throw new Error(`Erreur HTTP : ${response.status}`);
+						}
+						return response.text(); // Récupère le contenu HTML
+					})
+					.then(html => {
+						// process response
+						document.getElementById(button_id).innerHTML = html; // Insère le HTML
+						alert('La première zone a été mise à jour');
+					})
+					.catch(erreur => {
+						alert('Erreur :', erreur);
+					});
+				break;
+
+			case 'maj2':
+				// exemple 2
+				// charger contenu dynamique (fichier PHP)
+				// avec paramétrage
+				// méthode POST
+
+				// Code à exécuter si bouton "maj2" est cliqué
+				// 1. Récupérer la valeur de l'input
+				const param = { number: document.getElementById('ref2').value };
+
+				// 2. Envoyer la requête avec Fetch
+				fetch('exo_proverbe.php', {
+					method: 'POST', // ou 'GET' selon ce que votre script PHP attend
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded', // Format attendu par PHP pour $_POST
+					},
+					body: new URLSearchParams(param).toString(), // Convertit l'objet en format "clé=valeur"
+				})
+				.then(response => {
+					// 3. get response
+					if (!response.ok) {
+						throw new Error(`Erreur HTTP : ${response.status}`);
+					}
+					return response.text(); // Récupère la réponse en texte (ou .json() si c'est du JSON)
+				})
+				.then(html => {
+					// 4. Insérer la réponse dans l'élément button_id
+					document.getElementById(button_id).innerHTML = html;
+					alert('La deuxième zone a été mise à jour');
+				})
+				.catch(erreur => {
+					// 5. Process error
+					alert('Erreur :', erreur);
+				});
+
+				break;
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', (event) => {
+		// associer les évènements aux boutons après le chargement de la page
+		document.getElementById('maj1')
+			.addEventListener('click', () => fetchResponse('maj1'));
+		document.getElementById('maj2')
+			.addEventListener('click', () => fetchResponse('maj2'));
+	});
+
+	</script>
+  </head>
+  <body>
+
+	<h1>Exo01</h1>
+	<button id="maj1">Mise à jour 1 (texte)</button>
+	<div id="premier">
+	  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</div>
+	<hr />
+
+	<h1>Exo02</h1>
+	<input type="text" id="ref2" />
+	<button id="maj2">Proverbe chinois (load)</button>
+	<div id="deuxieme">
+	  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+	<hr />
+	
+  </body>
+</html>
