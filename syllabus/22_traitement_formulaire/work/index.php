@@ -12,7 +12,7 @@ $myapp_f = false;
 // display page head
 //html_head();
 
-require_once('login.php');
+require_once('login_cookie.php');
 
 //////////////////////////////////
 // display all HTML code from here
