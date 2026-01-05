@@ -1,8 +1,28 @@
 <?php
 
-function html_head()
+function html_head($menu_a=[])
 {
     $debug = false;
+
+    // on génère le code html du menu, à partir de $menu_a
+    $menu_s = <<< HTML
+        <ul class="menu">
+HTML;
+    foreach( $menu_a as $menu_item)
+    {
+        $visual = $menu_item[0];
+        $comp = $menu_item[1];
+        $subcomp = $menu_item[2] ?? '';
+        $menu_s .= <<< HTML
+            <li>
+                <a href="?page=$comp&subpage=$subcomp">
+                    $visual
+                </a>            
+            </li>
+HTML;
+    }
+    $menu_s .= "</ul>";
+
 	ob_start();
 	?>
 	<html lang="fr">
@@ -24,6 +44,7 @@ function html_head()
             France 24 (MVC)
             <img src="./media/icon3.png">
         </h1>
+        <?=$menu_s?>
     </header>
     <?php
 
