@@ -75,7 +75,7 @@
 <body>
 
 <?php
-try 
+try
 {
 	// Establishing Connection with Database
     $dsn =  "mysql:host=localhost;dbname=4ipw3_sample;";
