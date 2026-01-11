@@ -78,7 +78,7 @@
 try 
 {
 	// Establishing Connection with Database
-    $dsn =  "mysql:host=localhost;dbname=sample;";
+    $dsn =  "mysql:host=localhost;dbname=4ipw3_sample;";
     $pdo = new PDO( $dsn, "root", "" );
 
 	// Example with INSERT 
