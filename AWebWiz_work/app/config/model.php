@@ -1,9 +1,9 @@
 <?php
 
-const MACHINE = "home"; // "classe38" ou  "home" ou ... ce qu'on veut
+const MACHINE = "classe38"; // "classe38" ou  "home" ou ... ce qu'on veut
 
-const DATABASE_TYPE = "MySql";  // "csv"
-const DATABASE_NAME = "4ipdw_2023";
+const DATABASE_TYPE =  "MySql"; // "MySql";  // "csv" // "json"
+const DATABASE_NAME = "press_2025_v04";
 
 switch(MACHINE) {
 	// ISFCE, classe 38
@@ -19,6 +19,6 @@ switch(MACHINE) {
 		break;
 }
 
-const DSN =  "mysql:host=localhost;dbname=4ipdw_2023;port=".DATABASE_PORT.";";
+const DATABASE_DSN =  "mysql:host=localhost;dbname=".DATABASE_NAME.";port=".DATABASE_PORT.";charset=utf8mb4;";
 
 // var_dump(DSN);

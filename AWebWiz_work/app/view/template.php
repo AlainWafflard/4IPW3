@@ -42,7 +42,7 @@ HTML;
     <header>
         <h1>
             France 24 (MVC)
-            <img src="./media/icon3.png">
+            <img src="./icon/icon3.png">
         </h1>
         <?=$menu_s?>
     </header>
@@ -65,7 +65,7 @@ function html_foot()
         <hr />
         <footer>
             Made with the amazing AWebWiz framework
-            <img src="./media/awebwiz.png" alt="AWebWiz logo">
+            <img src="./icon/awebwiz.png" alt="AWebWiz logo">
         </footer>
 	</body>
 	</html>
