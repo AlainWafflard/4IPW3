@@ -71,7 +71,13 @@ main article.main_article
     padding:1mm;
 }
 
-main article.main_article img
+main article.main_article div.img
+{
+    width:80%;
+    margin:auto;
+}
+
+main article.main_article div img
 {
     width:100%;
 }

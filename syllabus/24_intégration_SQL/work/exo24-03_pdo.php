@@ -140,10 +140,13 @@ SQL;
 HTML;
     }
 
+    // MODEL-like
     $stmt = $pdo->query($q);
     $deal_a  = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // echo "PDO::FETCH_ASSOC";
     // var_dump($deal_a);
+
+    // VIEW-like
     $select_html_code_assoc = '';
     foreach( $deal_a as $deal )
     {
