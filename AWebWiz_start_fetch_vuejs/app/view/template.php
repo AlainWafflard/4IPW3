@@ -8,9 +8,25 @@ function html_head()
 	<html lang="fr">
 	<head>
 		<title>AWebWiz Template (MVC)</title>
+
         <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css" />  <!-- lib externe -->
         <link rel="stylesheet" href="./css/internal/main.css" /> <!-- lib interne / perso -->
-	</head>
+
+        <script src="./js/quirks/QuirksMode.js"></script>
+        <!--<script src="./js/internal/favorite.js"></script>-->
+        <script src="./js/internal/counter.js"></script>
+
+        <script src="./js/vue.js/vue.global.js"></script>
+        <script type="importmap">
+            {
+                "imports": {
+                    "vue" : "./js/vue.js/vue.esm-browser.js"
+                }
+            }
+        </script>
+        <script type="module" src="./js/internal/vuejs_fetch_app.js" defer></script>
+
+    </head>
 	<body>
     <header>
         <h1>

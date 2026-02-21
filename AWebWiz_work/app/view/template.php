@@ -30,13 +30,6 @@ HTML;
 		<title>AWebWiz Template (MVC)</title>
         <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css" />  <!-- lib externe -->
         <link rel="stylesheet" href="./css/internal/main.css" /> <!-- lib interne / perso -->
-        <script
-                src="https://code.jquery.com/jquery-3.4.1.js"
-                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-                crossorigin="anonymous"></script>
-        <script src="./js/quirks/QuirksMode.js"></script>
-        <script src="./js/internal/favorite.js"></script>
-        <script src="./js/internal/counter.js"></script>
 	</head>
 	<body>
     <header>

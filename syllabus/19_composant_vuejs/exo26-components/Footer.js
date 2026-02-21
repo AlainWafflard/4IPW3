@@ -18,7 +18,7 @@ export default {
                 </select>
             </div>
           </footer>
-    `,
+    `, 
 
     methods : {
         setTextColor(e) {

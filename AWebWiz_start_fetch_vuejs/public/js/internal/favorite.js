@@ -1,3 +1,11 @@
+
+/*
+ * AVERTISSEMENT
+ * Cet exo est toujours sous JQuery/AJAX.
+ * Il n'est pas implanté sous Vanilla JS / FETCH.
+ */
+
+
 /**
  * Page load
  */

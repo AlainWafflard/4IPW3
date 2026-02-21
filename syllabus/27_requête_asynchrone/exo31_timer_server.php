@@ -39,9 +39,19 @@ $quote_a = array(
 	'FB',
 	'GOOGL',
 );
-$url_info = "https://financialmodelingprep.com/api/v3/quote/" . implode( ',', $quote_a );
+
+// build remote query
+// $url_info = "https://financialmodelingprep.com/api/v3/quote/" . implode( ',', $quote_a );
+$ticker = 'GOOGL';
+$url_header = "https://financialmodelingprep.com/api/v3/profile/";
+$param_s = http_build_query([
+	'apikey' => 'KFJxjNS9dwCM4bKmF3YRqZsOSTElE0gU'
+]);
+$url_info = "{$url_header}{$ticker}?{$param_s}";
+//var_dump($url);
+
 list( $channel, $json_o ) = model_get_curl($url_info);
-// var_dump(json_decode($json_o));
+//var_dump(json_decode($json_o));
 
 $qa = json_decode($json_o);
 foreach( $qa as $o )
@@ -57,7 +67,7 @@ foreach( $qa as $o )
 }
 
 // INDICES Dow Jones Industrial 
-$url_info = "https://financialmodelingprep.com/api/v3/majors-indexes";
+/*$url_info = "https://financialmodelingprep.com/api/v3/majors-indexes";
 list( $channel, $json_o ) = model_get_curl($url_info);
 $a = json_decode($json_o)->majorIndexesList;
 foreach( $a as $o )
@@ -67,29 +77,30 @@ foreach( $a as $o )
 		$djia_o = $o;
 		break;
 	}
-}
+}*/
 
 // On construit le tableau de données finales, 
 // qu'on retournera au navigateur sous format JSON.
 $final_a = array(
-	array(
+/*	array(
 		'ticker'=> $facebook_o->symbol,
 		'name' 	=> $facebook_o->name,
 		'value' => $facebook_o->price,
 		'curr'	=> "USD",
-	),
+	),*/
 	array(
 		'ticker'=> $google_o->symbol,
-		'name' 	=> $google_o->name,
+		'name' 	=> $google_o->companyName,
 		'value' => $google_o->price,
-		'curr'	=> "USD",
+		'curr'	=> $google_o->currency,
+		'desc'	=> $google_o->description
 	),
-	array(
+/*	array(
 		'ticker'=> $djia_o->ticker,
 		'name' 	=> $djia_o->indexName,
 		'value' => $djia_o->price,
 		'curr'	=> "pts",
-	),
+	),*/
 );
 
 echo json_encode($final_a);

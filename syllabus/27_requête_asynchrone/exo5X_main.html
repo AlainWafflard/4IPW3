@@ -11,7 +11,8 @@
 	</style>
   	<script defer>
 
-	function fetchResponse(button_id)
+	// fetchResponse traite le retour du serveur
+	function fetchResponse(button_id, target_id)
 	{
 		switch (button_id) {
 			case 'maj1':
@@ -28,7 +29,7 @@
 					})
 					.then(html => {
 						// process response
-						document.getElementById(button_id).innerHTML = html; // Insère le HTML
+						document.getElementById(target_id).innerHTML = html; // Insère le HTML
 						alert('La première zone a été mise à jour');
 					})
 					.catch(erreur => {
@@ -44,7 +45,9 @@
 
 				// Code à exécuter si bouton "maj2" est cliqué
 				// 1. Récupérer la valeur de l'input
-				const param = { number: document.getElementById('ref2').value };
+				const param = {
+					number: document.getElementById('ref2').value
+				}
 
 				// 2. Envoyer la requête avec Fetch
 				fetch('exo_proverbe.php', {
@@ -63,7 +66,7 @@
 				})
 				.then(html => {
 					// 4. Insérer la réponse dans l'élément button_id
-					document.getElementById(button_id).innerHTML = html;
+					document.getElementById(target_id).innerHTML = html;
 					alert('La deuxième zone a été mise à jour');
 				})
 				.catch(erreur => {
@@ -75,26 +78,27 @@
 		}
 	}
 
-	document.addEventListener('DOMContentLoaded', (event) => {
+	// définition des évènements sur les boutons
+	document.addEventListener( 'DOMContentLoaded', (event) => {
 		// associer les évènements aux boutons après le chargement de la page
 		document.getElementById('maj1')
-			.addEventListener('click', () => fetchResponse('maj1'));
+			.addEventListener('click', () => fetchResponse('maj1', 'premier'));
 		document.getElementById('maj2')
-			.addEventListener('click', () => fetchResponse('maj2'));
+			.addEventListener('click', () => fetchResponse('maj2', 'deuxieme'));
 	});
 
 	</script>
   </head>
   <body>
 
-	<h1>Exo01</h1>
+	<h1>Exo51</h1>
 	<button id="maj1">Mise à jour 1 (texte)</button>
 	<div id="premier">
 	  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 	</div>
 	<hr />
 
-	<h1>Exo02</h1>
+	<h1>Exo52</h1>
 	<input type="text" id="ref2" />
 	<button id="maj2">Proverbe chinois (load)</button>
 	<div id="deuxieme">

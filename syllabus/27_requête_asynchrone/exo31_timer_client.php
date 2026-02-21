@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Exo31 : AJAX, timer & event</title>
-	<style type="text/css">
+	<style>
 		div.horloge
 		{
 			margin-top:1em;
@@ -13,7 +13,7 @@
 		div#quote span 
 		{
 			display: inline-block;
-			width: 120px;
+			width: 200px;
 			vertical-align: top;
 			text-align: right;
 			background-color: whitesmoke;
@@ -38,15 +38,19 @@
 	function RefreshQuote()
 	{
 		// URL du serveur 
-		var server_url = 'exo17-31_timer_server.php';
+		var server_url = 'exo31_timer_server.php';
 
 		$.post( server_url, function(quote_json) {
 			console.log(quote_json);
-			s = '<div class="horloge">' + Horloge() + '</div>' ;
+            const horloge = Horloge()
 			$.each( quote_json, function( i, quote ) {
 				console.log(quote);
-				s += "<label>" + quote.name + "</label>" 
-				   + "<span>" + quote.value + " " + quote.curr + "</span><br />";
+                s = `
+                    <div class="horloge">${horloge}</div>
+                    <label>${quote.name} (${quote.ticker}) </label>
+                    <span>${quote.value} ${quote.curr}</span><br />
+                    <div>${quote.desc}</div>
+                `;
 			});
 			console.log(s);
 			$("div#quote").append(s);
@@ -59,16 +63,15 @@
 		// Refreshing quote now 
 		RefreshQuote();
 
-		// Refreshing quote every 15 minutes
-		// setInterval(RefreshQuote, 1000*60*15);
-		setInterval(RefreshQuote, 1000*60*15);
+		// Refreshing quote every 60 seconds
+		setInterval(RefreshQuote, 1000*20);
 	});
 
 	</script>
 </head>
 <body>
 	
-	<h1>Exo17-31 : AJAX, timer & event</h1>
+	<h1>Exo27-31 : AJAX, timer & event</h1>
 	<h2>Cours de la Bourse de New York</h2>
 	<div id="quote"></div>
 
