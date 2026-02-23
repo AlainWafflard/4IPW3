@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import Counter from './vuejs_counter.js'
+import Counter from './counter.js'
 
 const app = createApp({
 

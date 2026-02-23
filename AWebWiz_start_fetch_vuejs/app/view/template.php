@@ -24,7 +24,7 @@ function html_head()
                 }
             }
         </script>
-        <script type="module" src="./js/internal/vuejs_fetch_app.js" defer></script>
+        <script type="module" src="./components/app.js" defer></script>
 
     </head>
 	<body>

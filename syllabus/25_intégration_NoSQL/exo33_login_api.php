@@ -25,6 +25,9 @@ function validate($name): bool
     $uri = $uri_head . http_build_query($uri_param);
     $json_string = file_get_contents($uri);
     $auth_a = json_decode($json_string, true);
+    echo <<< HTML
+        <h3>retour brut du serveur : </h3>
+HTML;
     var_dump($auth_a);
 
     if( ! $auth_a['identified'])
@@ -35,7 +38,11 @@ function validate($name): bool
     }
 
     // user identified
-	echo "<div>Vous êtes {$auth_a['name']} avec le rôle : {$auth_a['role']}</div>";
+	echo <<< HTML
+        <div>
+        Vous êtes {$auth_a['name']} avec le rôle : {$auth_a['role']}
+        </div>
+HTML;
 	return true;
 }
 

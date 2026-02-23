@@ -25,17 +25,16 @@ body
 <body>
 <?php
 /*
- * Comment convertir un fichier XML en objet/array PHP 
- * fonction : simplexml_load_file
+ * Comment convertir un fichier JSON en objet/array PHP
+ * fonction : file_get_contents
  *
  * Exemple 1 : la publicité 
  */
 
 // URL du fichier localisé sur burotix.be
 $json_file_url = "http://playground.burotix.be/adv/banner_for_isfce.json";
-$json_string=file_get_contents($json_file_url);
+$json_string = file_get_contents($json_file_url);
 $adv_a=json_decode($json_string, true);
-// var_dump($adv_a);
 
 $adv_image 	= $adv_a['banner_4IPDW']['image']; 	// adresse de l'image dans le banner
 $adv_text 	= $adv_a['banner_4IPDW']['text'];	// texte à afficher dans le banner
@@ -43,13 +42,19 @@ $adv_text 	= $adv_a['banner_4IPDW']['text'];	// texte à afficher dans le banner
 ?>
 
 <div class="banner">
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</div>
-
-<div class="banner">
 	<img src="<?=$adv_image;?>" style="float:right;" />
 	<?=$adv_text;?>
 </div>
+
+<h3>JSON string reçu du serveur</h3>
+<?php
+var_dump($json_string);
+?>
+
+<h3>conversion en assoc array</h3>
+<?php
+var_dump($adv_a);
+?>
 
 </body>
 </html>
