@@ -51,7 +51,7 @@
 		border:none;
 		margin-bottom:20px;
 	}
-	.submit
+	button.submit
 	{
 		color: white;
 		border-radius:3px;
@@ -73,12 +73,12 @@
 	</style>
 </head>
 <body>
-
+xxxxxx
 <?php
 try
 {
 	// Establishing Connection with Database
-    $dsn =  "mysql:host=localhost;dbname=4ipw3_sample;";
+    $dsn =  "mysql:host=localhost;dbname=4ipw3_sample;charset=utf8mb4;port=3307;";
     $pdo = new PDO( $dsn, "root", "" );
 
 	// Example with INSERT 
@@ -93,12 +93,14 @@ try
             $pdo->beginTransaction();
 			$q = <<< SQL
 				INSERT INTO t_deal (name_dea)
-				VALUES (?);
+				VALUES (:deal_name);
 SQL;
 
 			// execute the INSERT query
             $stmt = $pdo->prepare($q);
-            $stmt->execute([$deal]);
+            $stmt->execute([
+                    'deal_name' => $deal,
+            ]);
 
 			// count number of affected rows
 			// must be 1 (one)
@@ -134,11 +136,13 @@ SQL;
 	{
 		// concatenating HTML code into a single string
 		$select_html_code .= <<< HTML
-		<div>
-			{$row['partie']}
-		</div>
+		<div>{$row['partie']}</div>
 HTML;
 	}
+
+    $deal_a  = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    echo "PDO::FETCH_ASSOC";
+    var_dump($deal_a);
 }
 catch (Exception $e) 
 {
@@ -155,7 +159,7 @@ catch (Exception $e)
 	<label>Deal Name:</label><br />
 	<textarea rows="5" cols="25" name="deal_name"></textarea>
 	<br />
-	<input class="submit" type="submit" name="submit" value="Insert New Deal" />	
+        <button class="submit" type="submit" name="submit" >Insert New Deal</button>
 	<?php
 	if( ! empty($message) )
 	{
