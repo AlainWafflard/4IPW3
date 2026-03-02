@@ -1,7 +1,12 @@
 <?php
 
 /**
+ * main_counter_fetch
  * incrémente le compteur stocké en SESSION
+ * est appellée en mode asynchrone depuis FETCH,
+ * soit dans une simple page HTML
+ * soit dans un composant Vue.js
+ *
  * @return JSON string
  */
 function main_counter_fetch():string

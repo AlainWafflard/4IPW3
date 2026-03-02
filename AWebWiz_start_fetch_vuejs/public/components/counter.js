@@ -1,6 +1,6 @@
 export default {
 
-    template : `
+    template : `<div>
         Ceci est un compteur utilisant une requête FETCH
         dans le framework VUE.JS.<br>
         La valeur du compteur est stockée sur le serveur en variable SESSION.<br>
@@ -12,43 +12,34 @@ export default {
         <span class="compteur">
             compteur : {{ compteur_vuejs }}
         </span>
-    `,
+        <!-- Affichage conditionnel de l'erreur -->
+        <div v-if="erreur_message" class="erreur">
+            ⚠️ {{ erreur_message }}
+        </div>    
+    </div>`,
 
     data() {
         return {
-            compteur_vuejs : 0
+            compteur_vuejs : 0,
+            erreur_message  : null     // null = pas d'erreur
         }
     },
 
     methods: {
 
         fetchCounter(action) {
-            // set param
-            let param;
-            switch(action) {
-                case "increment":
-                    // on crée le param pour la requête FETCH, mode "increment"
-                    // attributs "return" et "page" exigés par AWebWiz
-                    param = {
-                        return      : "application/json",
-                        page        : "counter_fetch",
-                        action      : "increment",
-                        vuejs       : true
-                    };
-                    break;
+            // reinit
+            this.erreur_message = null; // reset error au début de chaque appel
 
-                case "get":
-                default:
-                    // on crée le param pour la requête FETCH, mode "get"
-                    // attributs "return" et "page" exigés par AWebWiz
-                    param = {
-                        return      : "application/json",
-                        page        : "counter_fetch",
-                        action      : "get",
-                        vuejs       : true
-                    };
-                    break;
-            }
+            // set param
+            // on crée le param pour la requête FETCH, mode "increment" ou "get"
+            // attributs "returnType" et "page" exigés par AWebWiz
+            const param = {
+                returnType  : "application/json",
+                page        : "counter_fetch",
+                action      : action,   // "increment" or "get"
+                vuejs       : true
+            };
 
             // Envoyer la requête avec Fetch
             fetch(window.location.pathname, {
@@ -69,7 +60,8 @@ export default {
                 const contentType = response.headers.get('content-type');
                 if ( ! contentType || ! contentType.includes('application/json'))
                 {
-                    throw new Error("La réponse n'est pas au format JSON");
+                    console.log('Problème avec fetch, contentType = ' + contentType);
+                    throw new Error("La réponse n'est pas au format JSON" + contentType);
                 }
 
                 return response.json(); // Récupère la réponse
@@ -80,9 +72,10 @@ export default {
                this.compteur_vuejs = json_data.cpt_val;
             })
 
-            .catch(erreur => {
+            .catch(error => {
                 // Process error
-                alert('Erreur : ' + erreur); // Affiche le message d'erreur
+                // alert('Erreur : ' + error);
+                this.erreur_message = error.message;
                 console.error('Problème avec fetch: ' + error);
             })
         }

@@ -12,7 +12,7 @@ function getset_counter(action)
             // on crée le param pour la requête FETCH, mode "increment"
             // attributs "return" et "page" exigés par AWebWiz
             param = {
-                return      : "application/json",
+                returnType  : "application/json",
                 page        : "counter_fetch",
                 action      : "increment",
             };
@@ -22,7 +22,7 @@ function getset_counter(action)
             // on crée le param pour la requête FETCH, mode "get"
             // attributs "return" et "page" exigés par AWebWiz
             param = {
-                return      : "application/json",
+                returnType  : "application/json",
                 page        : "counter_fetch",
                 action      : "get",
             };
@@ -47,7 +47,7 @@ function getset_counter(action)
         const contentType = response.headers.get('content-type');
         if (!contentType || !contentType.includes('application/json'))
         {
-            throw new Error("La réponse n'est pas au format JSON");
+            throw new Error("La réponse n'est pas au format JSON, mais : " + contentType);
         }
         return response.json(); // Récupère la réponse
     })

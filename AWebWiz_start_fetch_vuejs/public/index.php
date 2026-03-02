@@ -30,7 +30,7 @@ session_start();
 include_mvc_php_files();
 
 // select header type, ie. type of returned data, default is HTML text  "Content-Type: text/html; charset=UTF-8";
-$header = @$_REQUEST['return'] ?: 'text/html; charset=UTF-8';
+$header = @$_REQUEST['returnType'] ?: 'text/html; charset=UTF-8';
 
 // select page to load, ie. function to call
 // making router more universal => using superglobal REQUEST instead of POST or GET
