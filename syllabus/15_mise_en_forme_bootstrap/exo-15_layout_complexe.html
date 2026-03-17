@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap : exo-15</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .container
+        {
+            border:2px solid grey;
+        }
+        pre
+        {
+            margin-left:16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- NIVEAU 1 : structure principale -->
+  <div class="row">
+
+    <!-- Colonne sidebar gauche -->
+    <div class="col-2 bg-dark text-white p-3">
+      <h5>Menu</h5>
+      <ul class="list-unstyled">
+        <li>Dashboard</li>
+        <li>Projets</li>
+        <li>Équipe</li>
+      </ul>
+    </div>
+
+    <!-- Colonne contenu principal -->
+    <div class="col-10">
+
+      <!-- NIVEAU 2 : zone d'en-tête + stats -->
+      <div class="row mb-3">
+
+        <div class="col-12">
+          <h2>Tableau de bord</h2>
+        </div>
+
+        <!-- 4 cartes de statistiques -->
+        <div class="col-3">
+          <div class="card text-bg-primary p-3">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <i class="bi bi-folder fs-2"></i>
+              </div>
+              <div class="col">
+                <!-- NIVEAU 3 : contenu de la carte stat -->
+                <div class="row">
+                  <div class="col-12 fw-bold">12</div>
+                  <div class="col-12 small">Projets actifs</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card text-bg-success p-3">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <i class="bi bi-check-circle fs-2"></i>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-12 fw-bold">84</div>
+                  <div class="col-12 small">Tâches complètes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card text-bg-warning p-3">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <i class="bi bi-clock fs-2"></i>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-12 fw-bold">7</div>
+                  <div class="col-12 small">En attente</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card text-bg-danger p-3">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <i class="bi bi-exclamation-triangle fs-2"></i>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-12 fw-bold">3</div>
+                  <div class="col-12 small">En retard</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- fin NIVEAU 2 stats -->
+
+      <!-- NIVEAU 2 : zone principale -->
+      <div class="row">
+
+        <!-- Tableau des projets -->
+        <div class="col-8">
+          <div class="card p-3">
+            <h5>Projets récents</h5>
+
+            <!-- NIVEAU 3 : en-tête de tableau custom -->
+            <div class="row fw-bold border-bottom pb-2 mb-2">
+              <div class="col-5">Projet</div>
+              <div class="col-3">Responsable</div>
+              <div class="col-2">Statut</div>
+              <div class="col-2">Actions</div>
+            </div>
+
+            <!-- NIVEAU 3 : ligne de données -->
+            <div class="row align-items-center py-2 border-bottom">
+              <div class="col-5">
+                <div class="row">
+                  <div class="col-12 fw-semibold">Refonte site web</div>
+                  <div class="col-12">
+                    <!-- NIVEAU 4 : barre de progression -->
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <div class="progress" style="height: 6px;">
+                          <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                      </div>
+                      <div class="col-auto small text-muted">70%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">Alice Martin</div>
+              <div class="col-2">
+                <span class="badge text-bg-success">Actif</span>
+              </div>
+              <div class="col-2">
+                <div class="row g-1">
+                  <div class="col-auto">
+                    <button class="btn btn-sm btn-outline-primary">✏️</button>
+                  </div>
+                  <div class="col-auto">
+                    <button class="btn btn-sm btn-outline-danger">🗑️</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- autres lignes... -->
+
+          </div>
+        </div>
+        <!-- fin tableau projets -->
+
+        <!-- Panneau latéral droit -->
+        <div class="col-4">
+          <div class="card p-3 mb-3">
+            <h5>Équipe</h5>
+            <!-- NIVEAU 3 : membres -->
+            <div class="row align-items-center mb-2">
+              <div class="col-auto">
+                <div class="rounded-circle bg-primary text-white d-flex align-items-center
+                            justify-content-center" style="width:36px; height:36px">AM</div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-12 fw-semibold">Alice Martin</div>
+                  <div class="col-12 small text-muted">Chef de projet</div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <span class="badge text-bg-success">●</span>
+              </div>
+            </div>
+            <!-- autres membres... -->
+          </div>
+        </div>
+        <!-- fin panneau latéral -->
+
+      </div>
+      <!-- fin NIVEAU 2 zone principale -->
+
+    </div>
+    <!-- fin colonne contenu principal -->
+
+  </div>
+  <!-- fin NIVEAU 1 -->
+
+</div>
+
+<pre>
+
+## Schéma de l'imbrication
+
+container
+└── row  (N1 — structure page)
+    ├── col-2  (sidebar)
+    └── col-10 (contenu)
+        ├── row  (N2 — stats)
+        │   └── col-3 × 4  (cartes)
+        │       └── row  (N3 — intérieur carte)
+        │           ├── col-auto  (icône)
+        │           └── col
+        │               └── row  (N4 — chiffre + label)
+        │
+        └── row  (N2 — zone principale)
+            ├── col-8  (tableau)
+            │   └── row × n  (N3 — lignes tableau)
+            │       └── col-5
+            │           └── row  (N4 — progression)
+            │               ├── col  (barre)
+            │               └── col-auto  (%)
+            └── col-4  (panneau équipe)
+                └── row  (N3 — membre)
+                    ├── col-auto  (avatar)
+                    ├── col  (nom + rôle)
+                    └── col-auto  (statut)
+</pre>
+
+</body>
+</html>
+

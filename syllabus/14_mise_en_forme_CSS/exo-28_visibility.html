@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Visibility CSS</title>
+  <style>
+    section.wrap {
+        width: 100%;
+        margin: 2px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    section.wrap article {
+        width: 150px;
+        height: 150px;
+        margin:8px;
+    }
+
+    .boite {                    
+        height:100%;
+        width:100%;
+        background-color: steelblue;
+        color: white;
+        font-size: 1.2rem;
+        visibility: visible;
+    }
+                
+    .cachee {
+        visibility: hidden;
+              
+    }
+  </style>
+</head>
+<body>
+
+<section class="wrap">
+  <article>
+    Boîte 1
+    <div class="boite">Je suis là !</div>
+    visibility: visible
+  </article>
+
+  <article>
+    Boîte 2
+    <div class="boite cachee">On ne me voit pas</div>
+    visibility: hidden 
+  </article>
+
+  <article>
+    Boîte 3
+    <div class="boite">Je suis là aussi !</div>
+    visibility: visible
+  </article>
+</section>
+
+</body>
+</html>
